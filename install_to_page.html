@@ -2,32 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Add app to page</title>
-  </head>
-  <body>
-    <div id='fb-root'></div>
-    <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <p><a onclick='addToPage(); return false;'>Add to Page</a></p>
-    <p id='msg'></p>
+    <title>FB page starter</title>
+    <meta name="description" content="fbPageStarteR - a front-end framework designed for facebook pages.">
+    <meta name="author" content="Tachun LIN">
+    <meta name="viewport" content="width=device-width">
 
-    <script> 
-      FB.init({appId: "210182459022466", status: true, cookie: true}); // Use your own appID !!
-      function addToPage() {
-        FB.ui({
-          method: 'pagetab',
-          redirect_uri: 'http://demo.fbdoctor.com/fbdoctor_demo/install_to_page.html'
-        }, function(response) {
-          if (response != null && response.tabs_added != null) {
-            $.each(response.tabs_added, function(pageid) {
-              FB.api(pageid, function(response) {
-                alert('redirect to ' + response.link);
-              });
-            });
-          } else {
-            alert('Unable to install');
-          }
-        });
-      }
-    </script>
+    <!--[if lt IE 9]>
+      <script src="../assets/js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <script src="assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="assets/js/fbpagestarter.js"></script>
+    <script src="assets/js/applications.js"></script>
+    
+    <link href="assets/css/normalize.min.css" rel="stylesheet">
+    <link href="assets/css/fbtimeline_grid.css" rel="stylesheet">
+    <link href="assets/css/fbpagestarter.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>Adding an App to your Page</h1>
+    <p><button class='jsAddToPage'>Add to Page</button></p>
+    <p id='msg'></p>
   </body>
 </html>
