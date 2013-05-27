@@ -23,6 +23,8 @@
 
     <!-- Script block allowing child pages to inject their own scripts -->
     {% block scripts %}{% endblock %}
+    {{ "lib/jquery-1.10.0.min.js" | asset_url | script_tag }}
+    {{ "lib/fbpagestarter.js" | asset_url | script_tag }}
     {{ "app.js" | asset_url | script_tag }}
   </body>
 </html>
