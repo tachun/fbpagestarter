@@ -1,7 +1,22 @@
 (function( $ ) {
   var addToPage;
+  
+  $color = '#333';
+  $.fn.greenify = function() {
+    this.css( "color", $color );
+    //return this; // without this we can't chain methods
+    return this.each(function() {
+      // Do something to each element here.
+      $('.features li').on('click', function(e) {
+        e.preventDefault();
+        console.log('coucou');
+      });
+    });
+  }
+  $( "a" ).greenify().addClass( "greenified" );
 
-  $.fn.fb = function(appId, options) {
+
+  $.fn.fbStarter= function(appId, options) {
     var settings = $.extend({
         appId      : appId,
         status     : true, 
@@ -46,7 +61,7 @@
       document.getElementsByTagName('head')[0].appendChild(js);
     }
 
-
+    // -------------------------------------------------------------------
     // Install on Page
     $('.jsAddToPage').on('click', function(e) {
       e.preventDefault();
@@ -73,12 +88,31 @@
           method: 'feed',
           link: $(this).data('link'),
           picture: $(this).data('pic'),
-          name: $(this).data('name'),
+          title: $(this).data('title'),
           caption: $(this).data('caption'),
           description: $(this).data('desc')
       };
       FB.ui(obj);
     });
+
+    // Ask Permissions
+    $('.jsAskPermissions').on('click', function(e) {
+      e.preventDefault();
+      Facebook.require_permissions('email,user_birthday,publish_actions', function() {
+        //window.location.href = routes.templateUrl('participer');
+      });
+    });
+
+    //  Set page height
+    function setFbPageHeight(){
+      var heightInterval = setInterval(function(){
+        var newHeight = $('body').outerHeight(true);
+        FB.Canvas.setSize({ width: 810, height: newHeight });
+      }, 1000);
+      setTimeout(function(){
+        clearInterval(heightInterval);
+      },4000);
+    }
 
     
   };
