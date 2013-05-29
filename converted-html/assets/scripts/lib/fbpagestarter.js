@@ -10,8 +10,8 @@
         xfbml         : true,
         locales       : 'en_US',
         activeFangate : true,
-        likedPage     : 'like-wrapper',
-        unlikePage    : 'unlike-wrapper',
+        unlikePage    : 'unlike',
+        likedPage     : 'like',
         channelUrl    : ''
     }, options);
 
@@ -43,8 +43,10 @@
 
             the_query.wait(function(rows) {
               if (rows.length == 1 && rows[0].uid == user_id) {
+                console.log('liked:');
                 $('#'+settings.likedPage).show();
               } else {
+                console.log('not like yet');
                 $('#'+settings.unlikePage).show();
               }
             });
