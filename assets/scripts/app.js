@@ -7,5 +7,4 @@ $(function(){
     locales    : 'fr_FR',
     channelUrl : $canvas_url + 'channel.html'
   });
-
 });
