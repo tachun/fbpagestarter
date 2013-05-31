@@ -1,7 +1,13 @@
 {% block content %} 
   <article class="">
+
+    <button class="fb-dialog" data-fbtype="addtab">add</button>
+   
+    <button class="fb-dialog" data-fbtype="permissions" data-permissions="email,user_birthday,publish_actions">ask permission</button>
+
+    <button class="fb-dialog" data-fbtype="share" data-link="http://google.com" data-pic="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
+
     <section id="like-wrapper" style="display:none;">liked</section>
     <section id="unlike-wrapper" style="display:none;">unlike</section>
   </article>
-	<!-- TODO: Create my project :-) -->
 {% endblock %}
