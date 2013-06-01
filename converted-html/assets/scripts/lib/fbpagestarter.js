@@ -1,21 +1,28 @@
-(function( $ ) {
-  var addToPage;
-  
-  $.fn.fbStarter= function(appId, options) {
+(function( $ ) { 
+  $.fn.fbStarter= function(options) {
     var settings = $.extend({
-        appId         : appId,
-        pageId        : '',
-        status        : true, 
-        cookie        : true,
-        xfbml         : true,
-        locales       : 'en_US',
-        activeFangate : true,
-        unlikePage    : 'unlike',
-        likedPage     : 'like',
-        channelUrl    : ''
+        appId              : '',
+        pageId             : '',
+        status             : true,
+        cookie             : true,
+        xfbml              : true,
+        locales            : 'en_US',
+        frictionlessRequests : true,
+        canvasUrl          : '',
+
+        activeFangate      : false,
+        likedPage          : 'like-wrapper',
+        unlikePage         : 'unlike-wrapper',
+        permissionsSuccess : function(){},
+        permissionsFail    : function(){},
+        dialogSuccess      : function(){},
+        dialogFail         : function(){}
     }, options);
 
+    var channelUrl = settings.canvasUrl + '/channel.html';
 
+    // FB initiation
+    // -------------------------------------------------------------------
     window.fbInit = window.fbInit || false;
     if (window.fbInit) {
       $(document).trigger('fb:initialized');
@@ -24,7 +31,6 @@
       }
       return;
     }
-
     // Aync Init
     window.fbAsyncInit = function() {
       window.fbInit = true;
@@ -43,10 +49,8 @@
 
             the_query.wait(function(rows) {
               if (rows.length == 1 && rows[0].uid == user_id) {
-                console.log('liked:');
                 $('#'+settings.likedPage).show();
               } else {
-                console.log('not like yet');
                 $('#'+settings.unlikePage).show();
               }
             });
@@ -56,9 +60,6 @@
         });
       }
     };
-
-
-
     // Append fb-root
     var fbRoot = 'fb-root';
     if (!document.getElementById(fbRoot)) {
@@ -66,7 +67,6 @@
       element.id = fbRoot;
       document.body.appendChild(element);
     }
-
     // Add Facebook Javascript SDK
     var js, id = 'facebook-jssdk'; 
     if (!document.getElementById(id)) {
@@ -77,96 +77,109 @@
       document.getElementsByTagName('head')[0].appendChild(js);
     }
 
+
+    // Main functions
     // -------------------------------------------------------------------
-    // Install on Page
-    $('.jsAddToPage').on('click', function(e) {
-      e.preventDefault();
-      FB.ui({
-        method: 'pagetab',
-        redirect_uri: 'http:' + $canvas_url + 'install_to_page.html'
-      }, function(response) {
-        if (response != null && response.tabs_added != null) {
-          $.each(response.tabs_added, function(pageid) {
+    return this.each( function() {
+      var $this = $(this);
+        
+      $('.fb-dialog').click(function(e){
+        e.preventDefault();
+        var dialogType = $(this).data('fbactiontype');
+        
+        switch (dialogType) {
+          case 'install_page': 
+            installToPage();
+          break;
+
+          case 'permissions': 
+            var getPermissions = $(this).data('permissions');
+            permissions(getPermissions);
+          break;
+          
+          case 'share': 
+            var obj = {
+               method:      'feed',
+               link:        $(this).data('link'),
+               picture:     $(this).data('picture'),
+               title:       $(this).data('title'),
+               caption:     $(this).data('caption'),
+               description: $(this).data('description')
+             };
+             callUI(obj);
+          break;
+
+          case 'requests':
+            var obj = {
+               method:  'apprequests',
+               message: $(this).data('message')
+             };
+             callUI(obj);
+          break;
+
+          case 'send':
+            var obj = {
+              method: 'send',
+              name:    $(this).data('name'),
+              picture: $(this).data('picture'),
+              link:    $(this).data('link')
+            };
+            callUI(obj);
+          break;
+        };
+      });
+
+      // Add tab to page
+      function installToPage(){
+        var redirect_uri = settings.canvasUrl + 'install_to_page.html';
+        FB.ui({
+          method: 'pagetab',
+          redirect_uri: redirect_uri
+        }, function(response) {
+          if (response != null && response.tabs_added != null) {
+            $.each(response.tabs_added, function(pageid) {
             FB.api(pageid, function(response) {
-              alert('redirect to ' + response.link);
+              $('#msg').text('Your tab has already been installed');
             });
           });
-        } else {
-          alert('Unable to install');
-        }
-      });
-    });
-
-    // Post to timeline
-    $('.jsFbShare').on('click', function(e) {
-      e.preventDefault();
-      var obj = {
-          method: 'feed',
-          link: $(this).data('link'),
-          picture: $(this).data('pic'),
-          title: $(this).data('title'),
-          caption: $(this).data('caption'),
-          description: $(this).data('description')
+          } else {
+            $('#msg').text('Action cancelled, unable to install a page');
+          }
+        });
       };
-      FB.ui(obj);
-    });
 
-    // Ask Permissions
-    $('.jsAskPermissions').on('click', function(e) {
-      e.preventDefault();
-      var permissions = $(this).data('permissions');
-
-      FB.login(function(response) {
-         if (response.authResponse) {
-           console.log('Welcome!  Fetching your information.... ');
-           FB.api('/me', function(response) {
-             console.log('Good to see you, ' + response.name + '.');
-           });
-         } else {
-           console.log('User cancelled login or did not fully authorize.');
-         }
-       }, {scope: permissions});
-    });
-
-    $(document).on('load', function(e) {
-      console.log('is parent');
-      FB.login(function(response) {
-        console.log('is fb');
-        if (response.session) {
-          var user_id = response.session.uid;
-          var page_id = "109403935810224"; //coca cola
-          var fql_query = "SELECT uid FROM page_fan WHERE page_id = "+page_id+"and uid="+user_id;
-          var the_query = FB.Data.query(fql_query);
-          the_query.wait(function(rows) {
-            if (rows.length == 1 && rows[0].uid == user_id) {
-              console.log('is login');
-              //here you could also do some ajax and get the content for a "liker" instead of simply showing a hidden div in the page.
-            } else {
-              console.log('row=0');
-              //and here you could get the content for a non liker in ajax...
+      // Get permissions
+      function permissions(getPermissions){
+        FB.login(function(response) {
+          if (response.authResponse) {
+            if ( $.isFunction( settings.permissionsSuccess ) ) {
+              settings.permissionsSuccess.call( this );
             }
-          });
-        } else {
-          console.log('not login');
-          // user is not logged in
-        }
-      });
+          } else {
+            if ( $.isFunction( settings.permissionsFail ) ) {
+              settings.permissionsFail.call( this );
+            }
+          }
+        }, {scope: getPermissions});
+      };
+
+      // Post to timeline
+      function callUI(obj){
+        FB.ui(obj,function(response) {
+          if (response && response.post_id) {
+            if ( $.isFunction( settings.dialogSuccess ) ) {
+              settings.dialogSuccess.call( this );
+            }
+          } else {
+            if ( $.isFunction( settings.dialogFail ) ) {
+              settings.dialogFail.call( this );
+            }
+          }
+        });
+      };
+
+
     });
-
-    //  Set page height
-    function setFbPageHeight(){
-      var heightInterval = setInterval(function(){
-        var newHeight = $('body').outerHeight(true);
-        FB.Canvas.setSize({ width: 810, height: newHeight });
-      }, 1000);
-      setTimeout(function(){
-        clearInterval(heightInterval);
-      },4000);
-    }
-
-
-
-    
   };
 })( jQuery );
 

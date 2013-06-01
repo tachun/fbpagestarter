@@ -1,17 +1,22 @@
 (function( $ ) { 
   $.fn.fbStarter= function(options) {
     var settings = $.extend({
-        appId            : '',
-        pageId           : '',
-        status           : true,
-        cookie           : true,
-        xfbml            : true,
-        locales          : 'en_US',
-        activeFangate    : false,
-        likedPage        : 'like-wrapper',
-        unlikePage       : 'unlike-wrapper',
-        canvasUrl        : '',
-        callbackFunction : ''
+        appId                : '',
+        pageId               : '',
+        status               : true,
+        cookie               : true,
+        xfbml                : true,
+        locales              : 'en_US',
+        canvasUrl            : '',
+        frictionlessRequests : true,
+        
+        activeFangate        : false,
+        likedPage            : 'like-wrapper',
+        unlikePage           : 'unlike-wrapper',
+        permissionsSuccess   : function(){},
+        permissionsFail      : function(){},
+        dialogSuccess        : function(){},
+        dialogFail           : function(){}
     }, options);
 
     var channelUrl = settings.canvasUrl + '/channel.html';
@@ -33,7 +38,7 @@
       FB.init(settings);
       $(document).trigger('fb:initialized');
 
-      // Check like page status
+      // Fan gate, Check like page status
       if(settings.activeFangate){
         FB.getLoginStatus(function(response) {
           if (response.status == 'connected') {
@@ -72,72 +77,109 @@
       document.getElementsByTagName('head')[0].appendChild(js);
     }
 
-    // Call a dialog
-    // -------------------------------------------------------------------
-    $('.fb-dialog').on('click', function(e) {
-      e.preventDefault();
-      $dialogType = $(this).data('fbtype');
 
-      // Install on Page
-      if ($dialogType == 'addtab')
-        console.log($dialogType);
+    // Main functions
+    // -------------------------------------------------------------------
+    return this.each( function() {
+      var $this = $(this);
+        
+      $('.fb-dialog').click(function(e){
+        e.preventDefault();
+        var dialogType = $(this).data('fbactiontype');
+        
+        switch (dialogType) {
+          case 'install_page': 
+            installToPage();
+          break;
+
+          case 'permissions': 
+            var getPermissions = $(this).data('permissions');
+            permissions(getPermissions);
+          break;
+          
+          case 'share': 
+            var obj = {
+               method:      'feed',
+               link:        $(this).data('link'),
+               picture:     $(this).data('picture'),
+               title:       $(this).data('title'),
+               caption:     $(this).data('caption'),
+               description: $(this).data('description')
+             };
+             callUI(obj);
+          break;
+
+          case 'requests':
+            var obj = {
+               method:  'apprequests',
+               message: $(this).data('message')
+             };
+             callUI(obj);
+          break;
+
+          case 'send':
+            var obj = {
+              method: 'send',
+              name:    $(this).data('name'),
+              picture: $(this).data('picture'),
+              link:    $(this).data('link')
+            };
+            callUI(obj);
+          break;
+        };
+      });
+
+      // Add tab to page
+      function installToPage(){
+        var redirect_uri = settings.canvasUrl + 'install_to_page.html';
         FB.ui({
           method: 'pagetab',
-          redirect_uri: 'http:' + settings.canvasUrl + 'install_to_page.html'
+          redirect_uri: redirect_uri
         }, function(response) {
           if (response != null && response.tabs_added != null) {
             $.each(response.tabs_added, function(pageid) {
-              FB.api(pageid, function(response) {
-                alert('redirect to ' + response.link);
-              });
+            FB.api(pageid, function(response) {
+              $('#msg').text('Your tab has already been installed');
             });
+          });
           } else {
-            alert('Unable to install');
+            $('#msg').text('Action cancelled, unable to install a page');
           }
         });
+      };
 
-      // Post to timeline
-      if ($dialogType == 'share')
-        console.log($dialogType);
-        var obj = {
-          method: 'feed',
-          link: $(this).data('link'),
-          picture: $(this).data('pic'),
-          title: $(this).data('title'),
-          caption: $(this).data('caption'),
-          description: $(this).data('description')
-        };
-        FB.ui(obj);
-
-
-      // Post to timeline
-      if ($dialogType == 'permissions')
-        console.log($dialogType);
-        var permissions = $(this).data('permissions');
-
+      // Get permissions
+      function permissions(getPermissions){
         FB.login(function(response) {
           if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-              console.log('Good to see you, ' + response.name + '.');
-            });
+            if ( $.isFunction( settings.permissionsSuccess ) ) {
+              settings.permissionsSuccess.call( this );
+            }
           } else {
-            console.log('User cancelled login or did not fully authorize.');
+            if ( $.isFunction( settings.permissionsFail ) ) {
+              settings.permissionsFail.call( this );
+            }
           }
-        }, {scope: permissions});
+        }, {scope: getPermissions});
+      };
+
+      // Post to timeline
+      function callUI(obj){
+        FB.ui(obj,function(response) {
+          if (response && response.post_id) {
+            if ( $.isFunction( settings.dialogSuccess ) ) {
+              settings.dialogSuccess.call( this );
+            }
+          } else {
+            if ( $.isFunction( settings.dialogFail ) ) {
+              settings.dialogFail.call( this );
+            }
+          }
+        });
+      };
+
 
     });
-
-
-
-    // Callback function
-    // -------------------------------------------------------------------
-    return this.each( function() {
-      if ( $.isFunction( settings.callbackFunction ) ) {
-        settings.callbackFunction.call( this );
-      }
-    });
-    
   };
 })( jQuery );
 

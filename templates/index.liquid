@@ -1,11 +1,15 @@
 {% block content %} 
   <article class="">
 
-    <button class="fb-dialog" data-fbtype="addtab">add</button>
+    <button class="fb-dialog" data-fbactiontype="install_page">Add tab to a page</button>
    
-    <button class="fb-dialog" data-fbtype="permissions" data-permissions="email,user_birthday,publish_actions">ask permission</button>
+    <button class="fb-dialog" data-fbactiontype="permissions" data-permissions="email,user_birthday,publish_actions">ask permission</button>
 
-    <button class="fb-dialog" data-fbtype="share" data-link="http://google.com" data-pic="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
+    <button class="fb-dialog" data-fbactiontype="share" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
+
+    <button class="fb-dialog" data-fbactiontype="requests" data-message="My Great Request">Multi Friend Selector Requests</button>
+
+    <button class="fb-dialog" data-fbactiontype="send" data-name="This is a send dialog" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png">Send</button>
 
     <section id="like-wrapper" style="display:none;">liked</section>
     <section id="unlike-wrapper" style="display:none;">unlike</section>
