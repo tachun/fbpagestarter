@@ -39,8 +39,6 @@
       $(document).trigger('fb:initialized');
       FB.Canvas.setAutoGrow();
 
-      FB.Canvas.setAutoGrow();
-
       // Fan gate, Check like page status
       if(settings.activeFangate){
         FB.getLoginStatus(function(response) {
