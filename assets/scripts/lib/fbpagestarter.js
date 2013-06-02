@@ -37,6 +37,9 @@
       $(document).trigger('fb:initializing');
       FB.init(settings);
       $(document).trigger('fb:initialized');
+      FB.Canvas.setAutoGrow();
+
+      FB.Canvas.setAutoGrow();
 
       // Fan gate, Check like page status
       if(settings.activeFangate){
@@ -88,7 +91,7 @@
         var dialogType = $(this).data('fbactiontype');
         
         switch (dialogType) {
-          case 'install_page': 
+          case 'add_page_tab': 
             installToPage();
           break;
 

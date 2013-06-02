@@ -1,22 +1,22 @@
 (function( $ ) { 
   $.fn.fbStarter= function(options) {
     var settings = $.extend({
-        appId              : '',
-        pageId             : '',
-        status             : true,
-        cookie             : true,
-        xfbml              : true,
-        locales            : 'en_US',
+        appId                : '',
+        pageId               : '',
+        status               : true,
+        cookie               : true,
+        xfbml                : true,
+        locales              : 'en_US',
+        canvasUrl            : '',
         frictionlessRequests : true,
-        canvasUrl          : '',
-
-        activeFangate      : false,
-        likedPage          : 'like-wrapper',
-        unlikePage         : 'unlike-wrapper',
-        permissionsSuccess : function(){},
-        permissionsFail    : function(){},
-        dialogSuccess      : function(){},
-        dialogFail         : function(){}
+        
+        activeFangate        : false,
+        likedPage            : 'like-wrapper',
+        unlikePage           : 'unlike-wrapper',
+        permissionsSuccess   : function(){},
+        permissionsFail      : function(){},
+        dialogSuccess        : function(){},
+        dialogFail           : function(){}
     }, options);
 
     var channelUrl = settings.canvasUrl + '/channel.html';
@@ -37,8 +37,11 @@
       $(document).trigger('fb:initializing');
       FB.init(settings);
       $(document).trigger('fb:initialized');
+      FB.Canvas.setAutoGrow();
 
-      // Check like page status
+      FB.Canvas.setAutoGrow();
+
+      // Fan gate, Check like page status
       if(settings.activeFangate){
         FB.getLoginStatus(function(response) {
           if (response.status == 'connected') {
@@ -88,7 +91,7 @@
         var dialogType = $(this).data('fbactiontype');
         
         switch (dialogType) {
-          case 'install_page': 
+          case 'add_page_tab': 
             installToPage();
           break;
 

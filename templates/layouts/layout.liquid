@@ -10,15 +10,10 @@
     {% block styles %}{% endblock %}
   </head>
   <body>
-    <div class="fbframe">
-      <div id="application" class="page-container">
-        <!-- Include -->
-        {% include "header" %}
-        <!-- Content block, child page inject content -->
-        {% block content %}{% endblock %}
-
-        {% include "footer" %}
-      </div>
+    <div id="application" class="page-container">      
+      <!-- Content block, child page inject content -->
+      {% block content %}{% endblock %}
+      {% include "footer" %}
     </div>
 
     <!-- Script block allowing child pages to inject their own scripts -->

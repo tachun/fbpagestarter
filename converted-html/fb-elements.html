@@ -10,56 +10,97 @@
     
   </head>
   <body>
-    <div class="fbframe">
-      <div id="application" class="page-container">
-        <!-- Include -->
-        <header class="header">
-  <!-- <img src="assets/img/header.png" alt=""> -->
-  <nav class="navigation">
-    <ul class="cf">
-      <li><a href="fb-elements.html">FB Elements</a></li>
-      •
-      <li><a href="grid.html">Grids</a></li>
-      •
-      <li><a href="typography.html">Typography</a></li>
-      •
-      <li><a href="">Components</a></li>
-      •
-      <li><a href="">Themes</a></li>
-      •
-      <li><a href="links.html">Useful links</a></li>
-    </ul>
-  </nav>
+    <div id="application" class="page-container">      
+      <!-- Content block, child page inject content -->
+      
+  
+  <header class="header">
+  <img src="assets/img/header.png" alt="">
+  <!-- <a href="https://github.com/tachun/fbpagestarter/archive/master.zip" class="download-btn">Download Plugin</a> -->
+  <a href="https://github.com/tachun/fbpagestarter" class="source ribben">GitHub Project</a>
 </header>
-        <!-- Content block, child page inject content -->
-         
-  <article class="">
-    <section id="section-intro" class="section-intro">
-      <h2 class="section-title">Interact with Facebook</h2>
-      <div class="row">
-        <div class="col4">
-          <h3 class="section-subtitle">Features</h3>
-          <ol class="features">
-            <li>
-              <button class="jsAddToPage">Add tab to a page</button>
-            </li>
-            <li>
-              <button class="jsFbShare" data-link="http://google.com" data-pic="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
-            </li>
-            <li>
-              <button class="jsAskPermissions" data-permissions="email,user_birthday,publish_actions">Ask permissions</button>
-            </li>
-          </ol>
-        </div>
-      </div>
+
+<nav class="navigation">
+  <ul class="cf">
+    <li><a href="/">Getting Started</a></li>
+    •
+    <li><a href="fb-elements.html" class="selected">FB Elements</a></li>
+    •
+    <li><a href="grid.html" >Grids</a></li>
+    •
+    <li><a href="typography.html" >Typography</a></li>
+    •
+    <li><a href="">Components</a></li>
+    •
+    <li><a href="">Themes</a></li>
+  </ul>
+</nav>
+  
+  <article class="fb-elements main-content">
+    <p class="article-intro">
+      Trigger a facebook dialog is very simple, add a <strong>'fb-dialog'</strong> class on your element, than add a <strong>'data-fbactiontype'</strong> attribute with action that you want to use.
+    </p>
+    <section class="content-section">
+      <h3 class="section-title">Add Page Tab</h3>
+      <p>The add page tab dialog allows a user to add an application to a Facebook Page which they administer.</p>
+
+      <button class="fb-dialog btn" data-fbactiontype="add_page_tab">Add Page Tab</button>
+      
+      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="add_page_tab"</strong>&gtAdd tab to a page&lt;/button&gt</code></pre>
+    </section>
+    
+    <section class="content-section">
+      <h3 class="section-title">Authentication</h3>
+      <p>The authentication dialog allows a user to authorize an application as part of an authentication flow.</p>
+
+      <button class="fb-dialog btn" data-fbactiontype="permissions" data-permissions="email,user_birthday,publish_actions">Ask permissions</button>
+
+      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="permissions"</strong> <strong>data-permissions="email,user_birthday,publish_actions"</strong>&gtAsk Permissions&lt;/button&gt</code></pre>
+    </section>
+
+    <section class="content-section">
+      <h3 class="section-title">Post to wall</h3>
+      <p class="intro">The feed dialog allows a user to post a story to their Timeline</p>
+
+      <button class="fb-dialog btn" data-fbactiontype="share" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
+
+      <pre><code>&lt;button class="<strong>fb-dialog</strong>" 
+        <strong>data-fbactiontype="share"</strong>
+        <strong>data-links="YOUR_LINK"</strong>
+        <strong>data-picture="AN_IMAGE_AT_LEAST_200PX_WITH_ABSOLUTE_URL"</strong>
+        <strong>data-title="YOUR_TITLE"</strong>
+        <strong>data-caption="YOUR_CAPTION"</strong>
+        <strong>data-description="YOUR_DESCRIPTION"</strong>&gt
+Ask Permissions&lt;/button&gt</code></pre>
+    </section>
+    
+    <section class="content-section">
+      <h3 class="section-title">Multi Friend Selector Requests</h3>
+      <p class="intro">The requests dialog allows a user to send a request to one or more of their friends</p>
+
+      <button class="fb-dialog btn" data-fbactiontype="requests" data-message="My Great Request">Multi Friend Selector Requests</button>
+
+      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="requests"</strong> <strong>data-message="REQUEST_MESSAGE"</strong>&gtMulti Friend Selector Requests&lt;/button&gt</code></pre>
+    </section>
+    
+    <section class="content-section last">
+      <h3 class="section-title">Send</h3>
+      <p class="intro">The Send Dialog allows a user to send a Facebook Message to one or more of their friends.</p>
+
+      <button class="fb-dialog btn" data-fbactiontype="send" data-name="This is a send dialog" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/200-200.png">Send</button>
+
+      <pre><code>&lt;button class="<strong>fb-dialog</strong>" 
+        <strong>data-fbactiontype="send"</strong>
+        <strong>data-name="TITLE"</strong>
+        <strong>data-link="YOUR_LINK"</strong>
+        <strong>data-picture="AN_IMAGE_AT_LEAST_200PX_WITH_ABSOLUTE_URL"</strong>&gt
+Multi Friend Selector Requests&lt;/button&gt</code></pre>
     </section>
   </article>
 
-
-        <footer class="footer">
-  
+      <footer class="footer">
+  FBPAGESTARTER, A FRAMEWORK FOR FACEBOOK PAGES, by <a href="http://tachunlin.com">Tachun LIN</a>
 </footer>
-      </div>
     </div>
 
     <!-- Script block allowing child pages to inject their own scripts -->

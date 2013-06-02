@@ -1,5 +1,28 @@
+// Font mixins
+@mixin font-face($default-font-family, $default-font-path, $default-font-weight: normal, $default-font-style: normal ) {
+  @font-face {
+    font-family: $default-font-family;
+    font-weight: $default-font-weight;
+    font-style:  $default-font-style;
+    src: font-url('#{$default-font-path}.eot');
+    src: font-url('#{$default-font-path}.eot?#iefix')                  format('embedded-opentype'),
+         font-url('#{$default-font-path}.woff')                        format('woff'),
+         font-url('#{$default-font-path}.ttf')                         format('truetype'),
+         font-url('#{$default-font-path}.svg##{$default-font-family}') format('svg');
+  }
+}
+
+// Box sizing mixins
+
+// Box sizing mixins
 @mixin box-sizing($type: border-box){ 
   -webkit-box-sizing: $type;
-  -moz-box-sizing: $type;
-  box-sizing: $type; 
+  -moz-box-sizing:    $type;
+  box-sizing:         $type;
+}
+
+@mixin transition ($properties) {
+  -webkit-transition: $properties;
+     -moz-transition: $properties;
+          transition: $properties;
 }

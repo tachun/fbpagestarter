@@ -1,4 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Average+Sans);
 /* normalize.css v2.1.1 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -424,13 +423,28 @@ html[xmlns] .row {
   width: 810px;
   overflow: hidden; }
 
-/* Default variables */
 /* Background */
 /* Buttons */
+.btn {
+  color: white;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "average_sansregular", sans-serif;
+  line-height: 1.4;
+  background-color: #6f374b;
+  border-radius: 3px;
+  border: 1px solid #633143;
+  padding: 5px 15px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .btn:hover {
+    background-color: #582c3c; }
+
 .page-container {
-  color: #60605e;
+  color: #666666;
   font-size: 16px;
-  font-family: "Average Sans", sans-serif;
+  font-family: "average_sansregular", sans-serif;
   line-height: 1.4;
   background-color: white;
   -webkit-font-smoothing: antialiased; }
@@ -460,11 +474,20 @@ a {
   color: #2ba6cb; }
 
 .light-weight {
-  font-weight: lighter; }
+  font-weight: lighter !important; }
+
+@font-face {
+  font-family: 'average_sansregular';
+  src: url("../font/averagesans-regular-webfont.eot");
+  src: url("../font/averagesans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../font/averagesans-regular-webfont.woff") format("woff"), url("../font/averagesans-regular-webfont.ttf") format("truetype"), url("../font/averagesans-regular-webfont.svg#average_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 body {
-  background-color: #eee;
   text-align: center; }
+
+p {
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif; }
 
 .fbframe {
   width: 810px;
@@ -476,10 +499,63 @@ body {
   border-radius: 3px; }
 
 .header {
-  background-color: #3c1632; }
+  position: relative;
+  width: 810px;
+  height: 300px;
+  background-color: #6f374b;
+  overflow: hidden; }
+
+.download-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  width: 200px;
+  padding: 10px 0;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .download-btn:hover {
+    color: #592c3c;
+    border-color: #6f374b;
+    background-color: #EDECE8; }
+
+.ribben {
+  position: absolute;
+  top: 25px;
+  right: -105px;
+  display: block;
+  color: #592c3c;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-top: 1px dashed #592c3c;
+  border-bottom: 1px dashed #592c3c;
+  background-color: #EDECE8;
+  padding: 10px 0;
+  width: 300px;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -webkit-box-shadow: 0px 0px 4px 0px #000;
+  box-shadow: 0px 0px 4px 0px #000;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .ribben:hover {
+    color: #fff;
+    border-color: #fff;
+    background-color: #000; }
 
 .navigation {
-  text-align: center; }
+  text-align: center;
+  border-top: 3px solid #592c3c; }
   .navigation ul {
     padding: 0;
     margin: 0;
@@ -498,27 +574,66 @@ body {
       padding: 10px 15px;
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px; }
-      .navigation li a:hover, .navigation li a :active {
+      .navigation li a:hover, .navigation li a :active, .navigation li a.selected {
         color: #fff;
-        background-color: #3c1632; }
+        background-color: #592c3c; }
+
+.main-content {
+  padding: 20px;
+  text-align: left; }
+
+.article-intro strong {
+  color: #dea567; }
 
 .col4 {
   padding: 0 20px; }
 
+.content-section {
+  padding: 40px 0;
+  border-bottom: 1px solid #ddd; }
+
+.content-section.last {
+  border: none; }
+
 .section-title {
-  color: #3c1632;
-  font-size: 20px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  text-align: left;
   text-transform: uppercase;
-  padding: 10px 20px;
-  border-bottom: 1px solid #3c1632; }
+  line-height: 1em;
+  margin-bottom: 20px; }
 
 .section-subtitle {
   color: #e79951;
   font-size: 18px;
   letter-spacing: 2px; }
 
+.intro {
+  text-align: left; }
+
 .section-grid .col1, .section-grid .col2, .section-grid .col3, .section-grid .col4, .section-grid .col5, .section-grid .col6, .section-grid .col7, .section-grid .col8, .section-grid .col9, .section-grid .col10, .section-grid .col11, .section-grid .col12 {
   background: #e2a91f;
   color: #fff;
   text-align: center; }
+
+.footer {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 20px 0 0 0;
+  margin-top: 20px;
+  border-top: 1px solid #ddd; }
+
+.btn {
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 12px 35px; }
+
+pre {
+  color: #fff;
+  text-align: left;
+  padding: 15px 20px;
+  background-color: #333;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; }
+  pre strong {
+    color: #dea567; }

@@ -17,5 +17,5 @@ p { font-size: 1em; }
 a { color: $default-link-color; }
 
 .light-weight{ 
-  font-weight: lighter;
+  font-weight: lighter !important;
 }

@@ -1,15 +1,29 @@
-/* Default variables */
-$default-fontsize:         16px;
-$default-font-family:      'Average Sans', sans-serif;
-$default-font-color:       #60605e;
-$default-line-height:      1.4;
-$default-text-rendering:   antialiased;
-$default-link-color:       #2ba6cb;
+// Font default variables
+$default-fontsize:         16px !default;
+$default-font-family:      'average_sansregular', sans-serif !default;
+$default-font-color:       #666 !default;
+$default-line-height:      1.4 !default;
+$default-font-weight:      400 !default;
+$default-font-style:       normal !default;
+
+$default-text-rendering:   antialiased !default;
+$default-link-color:       #2ba6cb !default;
+$default-font-path:        '';
 
 /* Background */
-$default-background-color: #ffffff;
+$default-background-color: #ffffff !default;
 
-$default-top-margin:       10px;
-$default-bottom-margin:    10px;
+$default-top-margin:       10px !default;
+$default-bottom-margin:    10px !default;
 
 /* Buttons */
+$default-btn-color:          #ffffff !default;
+$default-btn-bg-color:       #6f374b !default;
+$default-btn-bg-color-hover: $default-btn-bg-color*.8;
+$default-btn-font-size:      1em !default;
+$default-btn-font-weight:    $default-font-weight;
+$default-btn-font-family:    'average_sansregular', sans-serif !default;
+$default-line-height:        1em !default;
+$default-border-radius:      3px;
+$default-border-style:       1px solid $default-btn-bg-color*.9;
+
