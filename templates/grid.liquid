@@ -2,91 +2,139 @@
   {% assign current_p = "grid" %}
   {% include "header" %}
 
-  <article class="">    
-    <section id="section-grid" class="section-grid">
+  <article class="grid main-content">
+    <section class="content-section last">
       <h2 class="section-title">Grid system</h2>
-      <div class="row">
-        <div class="col12"><p>col12</p></div>
-      </div>
+      <p class="article-intro">
+        1. Add a class "<strong>page-container</strong>" to your application main wrapper
+      </p>
+      <pre><code>&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
+      <p class="article-intro">
+        2. Play with class "<strong>row</strong>" and "<strong>col1" ~ "col12</strong>"
+      </p>
+      <pre><code><em>// Basic 2 column layout</em>
 
-      <div class="row">
-        <div class="col6"><p>col6</p></div>
-        <div class="col6"><p>col6</p></div>
-      </div>
+&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;
+  &lt;div class="<strong>row</strong>"&gt;
+    &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+    &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-      <div class="row">
-        <div class="col4"><p>col4</p></div>
-        <div class="col4"><p>col4</p></div>
-        <div class="col4"><p>col4</p></div>
-      </div>
 
-      <div class="row">
-        <div class="col3"><p>col3</p></div>
-        <div class="col3"><p>col3</p></div>
-        <div class="col3"><p>col3</p></div>
-        <div class="col3"><p>col3</p></div>
-      </div>
+<em>// Basic 3 column layout</em>
 
-      <div class="row">
-        <div class="col2"><p>col2</p></div>
-        <div class="col2"><p>col2</p></div>
-        <div class="col2"><p>col2</p></div>
-        <div class="col2"><p>col2</p></div>
-        <div class="col2"><p>col2</p></div>
-        <div class="col2"><p>col2</p></div>
-      </div>
+&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;
+  &lt;div class="<strong>row</strong>"&gt;
+    &lt;div class="<strong>col4</strong>"&gt;&lt;/div&gt;
+    &lt;div class="<strong>col4</strong>"&gt;&lt;/div&gt;
+    &lt;div class="<strong>col4</strong>"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-      <div class="row">
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-        <div class="col1"><p>col1</p></div>
-      </div>
 
-      <div class="row">
-        <div class="col5"><p>col5</p></div>
-        <div class="col7"><p>col7</p></div>
-      </div>
+<em>// Nested column layout</em>
 
-      <div class="row">
-        <div class="col4"><p>col4</p></div>
-        <div class="col8"><p>col8</p></div>
-      </div>
-
-      <div class="row">
-        <div class="col3"><p>col3</p></div>
-        <div class="col9"><p>col9</p></div>
-      </div>
-
-      <div class="row">
-        <div class="col2"><p>col2</p></div>
-        <div class="col10"><p>col10</p></div>
-      </div>
-
-      <div class="row">
-        <div class="col1"><p>col1</p></div>
-        <div class="col11"><p>col11</p></div>
-      </div>
-
-      <div class="row">
-        <div class="col6 nested">
-          <div class="col6"><p>col6</p></div>
-          <div class="col6"><p>col6</p></div>
-        </div>
-        <div class="col6 nested">
-          <div class="col6"><p>col6</p></div>
-          <div class="col6"><p>col6</p></div>
-        </div>
-      </div>
+&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;
+  &lt;div class="<strong>row</strong>"&gt;
+    &lt;div class="<strong>col6</strong>"&gt;
+      &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+      &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<strong>col6</strong>"&gt;
+      &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+      &lt;div class="<strong>col6</strong>"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      <h2 class="section-title top-large" >Demo</h2>
     </section>
-    
   </article>
+
+  <section id="section-grid" class="section-grid">
+    <div class="row">
+      <div class="col12"><p>col12</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col6"><p>col6</p></div>
+      <div class="col6"><p>col6</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col4"><p>col4</p></div>
+      <div class="col4"><p>col4</p></div>
+      <div class="col4"><p>col4</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col3"><p>col3</p></div>
+      <div class="col3"><p>col3</p></div>
+      <div class="col3"><p>col3</p></div>
+      <div class="col3"><p>col3</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col2"><p>col2</p></div>
+      <div class="col2"><p>col2</p></div>
+      <div class="col2"><p>col2</p></div>
+      <div class="col2"><p>col2</p></div>
+      <div class="col2"><p>col2</p></div>
+      <div class="col2"><p>col2</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+      <div class="col1"><p>col1</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col5"><p>col5</p></div>
+      <div class="col7"><p>col7</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col4"><p>col4</p></div>
+      <div class="col8"><p>col8</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col3"><p>col3</p></div>
+      <div class="col9"><p>col9</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col2"><p>col2</p></div>
+      <div class="col10"><p>col10</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col1"><p>col1</p></div>
+      <div class="col11"><p>col11</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col6 nested">
+        <div class="col6"><p>col6</p></div>
+        <div class="col6"><p>col6</p></div>
+      </div>
+      <div class="col6 nested">
+        <div class="col6"><p>col6</p></div>
+        <div class="col6"><p>col6</p></div>
+      </div>
+    </div>
+  </section>
+    
+  
 {% endblock %}
