@@ -13,7 +13,6 @@
         <li>Check user's like status</li>
         <li>810px Grid system</li>
         <li>Basic styles (Headings, Buttons, Form)</li>
-        <li>Useful lnks</li>
       </ul>
     </section>
 
@@ -25,34 +24,36 @@
       </p>
       <pre><code>&lt;script src="<strong>YOUR_PATH/fbpagestarter.min.js</strong>"&gt&lt;script&gt</code></pre>
       
-      <h5>Basic Usage</h5>
-$(function(){
-  $(document).fbStarter({
-    appId     : 'YOUR APP ID',
-    pageId    : 'YOUR PAGE ID',
-    canvasUrl : '//YOUR_CANVAS_URL', <em>//ex: '//blabla.com/'</em>
-  });
-});
-      
-      <h5>Advance Usage</h5>
+      <h4>Basic Usage</h4>
       <pre><code>
 $(function(){
-  $(document).fbStarter({
-    appId              : 'YOUR APP ID',
-    pageId             : 'YOUR PAGE ID',
-    locales            : 'fr_FR',  <em>//Your locale, default is en_US</em>
-    canvasUrl          : '//YOUR_CANVAS_URL', <em>//ex: '//blabla.com/'</em>
-    activeFangate      : true,  <em>//Active Fangate</em>
-    dialogSuccess      : function(){
+  $(document).<strong>fbStarter</strong>({
+    appId     : '<strong>YOUR APP ID</strong>',
+    pageId    : '<strong>YOUR PAGE ID</strong>',
+    canvasUrl : '<strong>//YOUR_CANVAS_URL</strong>'  <em>//ex: '//blabla.com/'</em>
+  });
+});
+      </code></pre>
+      
+      <h4>Advance Usage</h4>
+      <pre><code>
+$(function(){
+  $(document).<strong>fbStarter</strong>({
+    appId              : '<strong>YOUR APP ID</strong>',
+    pageId             : '<strong>YOUR PAGE ID</strong>',
+    locales            : '<strong>fr_FR</strong>',  <em>//Your locale, default is en_US</em>
+    canvasUrl          : '<strong>//YOUR_CANVAS_URL</strong>',  <em>//ex: '//blabla.com/'</em>
+    activeFangate      : <strong>true</strong>,  <em>//Active Fangate</em>
+    dialogSuccess      : <strong>function(){
       <em>//Custome callback function for dialog submit success</em>
-    },
-    dialogFail      : function(){
+    }</strong>,
+    dialogFail         : <strong>function(){
       <em>//Custome callback function when user close dialog without submit</em>
-    },
-    permissionsSuccess : function(){
+    }</strong>,
+    permissionsSuccess : <strong>function(){
       FB.api('/me', function(response) {
         <em>//Custome callback function for authentication success</em>
-      });
+      });</strong>
     }
   });
 });

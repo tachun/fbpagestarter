@@ -21,6 +21,11 @@ p{
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
+h4{
+  color: $brand-color*1.5;
+  font-size: 20px;
+}
+
 .fbframe{
   width: 810px;
   padding: 20px;
@@ -203,4 +208,11 @@ pre{
   strong{
     color: $link-color;
   }
+  em{
+    font-size: .9em;
+    color: #999;
+  }
 }
+
+
+

@@ -489,6 +489,10 @@ body {
 p {
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif; }
 
+h4 {
+  color: #a65270;
+  font-size: 20px; }
+
 .fbframe {
   width: 810px;
   padding: 20px;
@@ -645,3 +649,6 @@ pre {
   border-bottom: 1px solid #ddd; }
   pre strong {
     color: #dea567; }
+  pre em {
+    font-size: .9em;
+    color: #999; }
