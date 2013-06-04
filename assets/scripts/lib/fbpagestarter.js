@@ -37,7 +37,10 @@
       $(document).trigger('fb:initializing');
       FB.init(settings);
       $(document).trigger('fb:initialized');
-      FB.Canvas.setAutoGrow();
+      FB.Canvas.setDoneLoading( function(response) {
+        FB.Canvas.setAutoGrow();
+        console.log('in');
+      });
 
       // Fan gate, Check like page status
       if(settings.activeFangate){
@@ -50,12 +53,15 @@
 
             the_query.wait(function(rows) {
               if (rows.length == 1 && rows[0].uid == user_id) {
+                /* TODO, add a callback here! */
                 $('#'+settings.likedPage).show();
               } else {
+                /* TODO, add a callback here! */
                 $('#'+settings.unlikePage).show();
               }
             });
           } else {
+            /* TODO, add a callback here! */
             console.log('not login');
           }
         });
