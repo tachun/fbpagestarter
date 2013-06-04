@@ -3,12 +3,67 @@
   {% include "header" %}
 
   <article class="homepage main-content">
-    <h3 class="section-title">WHAT IS FBPAGESTARTER</h3>
-    <p class="intro">
-      FBPAGESTARTER provide an easiest front-end way to build a Facebook Page tab app
-    </p>
+    <section id="features" class="content-section">
+      <h3 class="section-title">Features</h3>
+      <ul>
+        <li>Loading and initialization Facebook's JS SDK</li>
+        <li>Facebook login</li>
+        <li>Dialogs (add page tab, Feed, OAuth, Requests, Send)</li>
+        <li>Canvas Methods (setSize, setAutoGrow, scrollTo)</li>
+        <li>Check user's like status</li>
+        <li>810px Grid system</li>
+        <li>Basic styles (Headings, Buttons, Form)</li>
+        <li>Useful lnks</li>
+      </ul>
+    </section>
+
     <section id="" class="content-section">
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="add_page_tab"</strong>&gtAdd tab to a page&lt;/button&gt</code></pre>
+      <h3 class="section-title">HOW IT WORKS?</h3>
+      <h4>Javascript</h4>
+      <p class="article-intro">
+        Include jQuery library first, than include <strong>fbpagestarter.js</strong> in your header.
+      </p>
+      <pre><code>&lt;script src="<strong>YOUR_PATH/fbpagestarter.min.js</strong>"&gt&lt;script&gt</code></pre>
+      
+      <h5>Basic Usage</h5>
+$(function(){
+  $(document).fbStarter({
+    appId     : 'YOUR APP ID',
+    pageId    : 'YOUR PAGE ID',
+    canvasUrl : '//YOUR_CANVAS_URL', <em>//ex: '//blabla.com/'</em>
+  });
+});
+      
+      <h5>Advance Usage</h5>
+      <pre><code>
+$(function(){
+  $(document).fbStarter({
+    appId              : 'YOUR APP ID',
+    pageId             : 'YOUR PAGE ID',
+    locales            : 'fr_FR',  <em>//Your locale, default is en_US</em>
+    canvasUrl          : '//YOUR_CANVAS_URL', <em>//ex: '//blabla.com/'</em>
+    activeFangate      : true,  <em>//Active Fangate</em>
+    dialogSuccess      : function(){
+      <em>//Custome callback function for dialog submit success</em>
+    },
+    dialogFail      : function(){
+      <em>//Custome callback function when user close dialog without submit</em>
+    },
+    permissionsSuccess : function(){
+      FB.api('/me', function(response) {
+        <em>//Custome callback function for authentication success</em>
+      });
+    }
+  });
+});
+      </code></pre>
+
+
+      <h4>Css</h4>
+      <p class="article-intro">
+        If you want to use FBPAGESTARTER's grid system, add a class "<strong>page-container</strong>"" on your application's main wrapper.
+      </p>
+      <pre><code>&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
     </section>
 
     <section id="useful-links" class="content-section last">
@@ -27,6 +82,10 @@
           </ol>
         </div>
       </div>
+    </section>
+
+    <section id="compatibility" class="content-section last">
+      <h2 class="section-title">BROWSER COMPATIBILITY</h2>
     </section>
     
 
