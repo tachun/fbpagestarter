@@ -10,27 +10,33 @@
       <h3 class="section-title">Add Page Tab</h3>
       <p>The add page tab dialog allows a user to add an application to a Facebook Page which they administer.</p>
 
+      <p class="article-intro">Use data-fbactiontype = "<strong>add_page_tab</strong>"</p>
+
       <button class="fb-dialog btn" data-fbactiontype="add_page_tab">Add Page Tab</button>
       
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="add_page_tab"</strong>&gtAdd tab to a page&lt;/button&gt</code></pre>
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="add_page_tab"</strong>&gtAdd tab to a page&lt;/button&gt</code></pre>
     </section>
     
     <section class="content-section">
       <h3 class="section-title">Authentication</h3>
       <p>The authentication dialog allows a user to authorize an application as part of an authentication flow.</p>
 
+      <p class="article-intro">Use data-fbactiontype = "<strong>permissions</strong>", than add "<strong>data-permissions</strong>" attribute to control permissions</p>
+
       <button class="fb-dialog btn" data-fbactiontype="permissions" data-permissions="email,user_birthday,publish_actions">Ask permissions</button>
 
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="permissions"</strong> <strong>data-permissions="email,user_birthday,publish_actions"</strong>&gtAsk Permissions&lt;/button&gt</code></pre>
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="permissions"</strong> <strong>data-permissions="email,user_birthday,publish_actions"</strong>&gtAsk Permissions&lt;/button&gt</code></pre>
     </section>
 
     <section class="content-section">
       <h3 class="section-title">Post to wall</h3>
       <p class="intro">The feed dialog allows a user to post a story to their Timeline</p>
+      
+      <p class="article-intro">Use data-fbactiontype = "<strong>share</strong>", than add "<strong>data-link</strong>", "<strong>data-picture</strong>", "<strong>data-title</strong>", "<strong>data-caption</strong>", "<strong>data-description</strong>" attributes to control your message contents</p>
 
       <button class="fb-dialog btn" data-fbactiontype="share" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/share-icon.jpg" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
 
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" 
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" 
         <strong>data-fbactiontype="share"</strong>
         <strong>data-links="YOUR_LINK"</strong>
         <strong>data-picture="AN_IMAGE_AT_LEAST_200PX_WITH_ABSOLUTE_URL"</strong>
@@ -38,15 +44,25 @@
         <strong>data-caption="YOUR_CAPTION"</strong>
         <strong>data-description="YOUR_DESCRIPTION"</strong>&gt
 Ask Permissions&lt;/button&gt</code></pre>
+
+      <p class="note">
+        *All these data attributes are required, url of data-link must be an absolute url, and I recommend a 300px*300px image for data-picture.
+      </p>
     </section>
     
     <section class="content-section">
       <h3 class="section-title">Multi Friend Selector Requests</h3>
       <p class="intro">The requests dialog allows a user to send a request to one or more of their friends</p>
+      
+      <p class="article-intro">Use data-fbactiontype = "<strong>requests</strong>", than add "<strong>data-message</strong>" attribute to control your message contents</p>
 
       <button class="fb-dialog btn" data-fbactiontype="requests" data-message="My Great Request">Multi Friend Selector Requests</button>
 
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="requests"</strong> <strong>data-message="REQUEST_MESSAGE"</strong>&gtMulti Friend Selector Requests&lt;/button&gt</code></pre>
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="requests"</strong> <strong>data-message="REQUEST_MESSAGE"</strong>&gtMulti Friend Selector Requests&lt;/button&gt</code></pre>
+
+      <p class="note">
+        *The icon who display on requests dialog is the Facebook application icon.
+      </p>
     </section>
     
     <section class="content-section last">
@@ -55,7 +71,7 @@ Ask Permissions&lt;/button&gt</code></pre>
 
       <button class="fb-dialog btn" data-fbactiontype="send" data-name="This is a send dialog" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/share-icon.jpg">Send</button>
 
-      <pre><code>&lt;button class="<strong>fb-dialog</strong>" 
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" 
         <strong>data-fbactiontype="send"</strong>
         <strong>data-name="TITLE"</strong>
         <strong>data-link="YOUR_LINK"</strong>

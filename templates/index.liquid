@@ -3,41 +3,28 @@
   {% include "header" %}
 
   <article class="homepage main-content">
-    <section id="features" class="content-section">
-      <h3 class="section-title">Features</h3>
-      <ul>
-        <li>Loading and initialization Facebook's JS SDK</li>
-        <li>Facebook login</li>
-        <li>Dialogs (add page tab, Feed, OAuth, Requests, Send)</li>
-        <li>Canvas Methods (setSize, setAutoGrow, scrollTo)</li>
-        <li>Check user's like status</li>
-        <li>810px Grid system</li>
-        <li>Basic styles (Headings, Buttons, Form)</li>
-      </ul>
-    </section>
-
+    <p class="article-intro">
+      Fbpagestarter is front-end framework that makes it easy to create an application on Facebook.
+    </p>
     <section id="" class="content-section">
-      <h3 class="section-title">HOW IT WORKS?</h3>
-      <h4>Javascript</h4>
+      <h3 class="section-title">GETTING STARTED</h3>
+      <h4>Include fbpagestarter plugin</h4>
       <p class="article-intro">
-        Include jQuery library first, than include <strong>fbpagestarter.js</strong> in your header.
+        Include <strong>fbpagestarter.js</strong> after you've included jQuery.
       </p>
-      <pre><code>&lt;script src="<strong>YOUR_PATH/fbpagestarter.min.js</strong>"&gt&lt;script&gt</code></pre>
+      <pre class="prettyprint"><code class="language-html">&lt;script src="/PATH/TO/fbpagestarter.min.js"&gt;&lt;/script&gt;</code></pre>
       
       <h4>Basic Usage</h4>
-      <pre><code>
-$(function(){
+<pre class="prettyprint"><code class="language-js">$(function(){
   $(document).<strong>fbStarter</strong>({
     appId     : '<strong>YOUR APP ID</strong>',
     pageId    : '<strong>YOUR PAGE ID</strong>',
     canvasUrl : '<strong>//YOUR_CANVAS_URL</strong>'  <em>//ex: '//blabla.com/'</em>
   });
-});
-      </code></pre>
+});</code></pre>
       
       <h4>Advance Usage</h4>
-      <pre><code>
-$(function(){
+<pre class="prettyprint"><code class="language-js">$(function(){
   $(document).<strong>fbStarter</strong>({
     appId              : '<strong>YOUR APP ID</strong>',
     pageId             : '<strong>YOUR PAGE ID</strong>',
@@ -46,49 +33,63 @@ $(function(){
     activeFangate      : <strong>true</strong>,  <em>//Active Fangate</em>
     dialogSuccess      : <strong>function(){
       <em>//Custome callback function for dialog submit success</em>
+      console.log('dialog success');
     }</strong>,
-    dialogFail         : <strong>function(){
+    dialogFail         : <strong>function(){  
       <em>//Custome callback function when user close dialog without submit</em>
+      console.log('dialog canceled');
     }</strong>,
     permissionsSuccess : <strong>function(){
+      <em>//Custome callback function for authentication success</em>
       FB.api('/me', function(response) {
-        <em>//Custome callback function for authentication success</em>
-      });</strong>
-    }
+        console.log('Hello! ' + response.name + '.');
+      });
+    }</strong>
   });
-});
-      </code></pre>
+});</code></pre>
 
 
       <h4>Css</h4>
       <p class="article-intro">
         If you want to use FBPAGESTARTER's grid system, add a class "<strong>page-container</strong>"" on your application's main wrapper.
       </p>
-      <pre><code>&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
+      <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
     </section>
 
-    <section id="useful-links" class="content-section last">
-      <h2 class="section-title">Useful links</h2>
-      <div class="row">
-        <div class="col12">
-          <ol>
-            <li><a href="https://developers.facebook.com/web/" target="_blank">Facebook Developers</a></li>
-            <li><a href="https://developers.facebook.com/tools/debug" target="_blank">Facebook Debugger</a></li>
-            <li><a href="https://developers.facebook.com/docs/javascript/gettingstarted/" target="_blank">JS SDK</a></li>
-            <li><a href="https://developers.facebook.com/bugs/" target="_blank">Facebook Bugs</a></li>
-            <li><a href="http://facebook.stackoverflow.com/" target="_blank">Facebook x Stackoverflow</a></li>
-            <li><a href="https://developers.facebook.com/blog/">Developer Blog</a></li>
-            <li><a href="https://developers.facebook.com/docs/opengraph/" target="_blank">Open graph overview</a></li>
-            <li><a href="https://developers.facebook.com/docs/plugins/" target="_blank">Social plugins</a></li>
-          </ol>
-        </div>
-      </div>
+    <section id="features" class="content-section">
+      <h3 class="section-title">Features</h3>
+      <ul>
+        <li>Loading and initialization Facebook's JS SDK</li>
+        <li>Facebook login</li>
+        <li>Dialogs (Add page tab, Feed, OAuth, Requests, Send)</li>
+        <li>Canvas Methods (setSize, setAutoGrow, scrollTo)</li>
+        <li>Check user's like status</li>
+        <li>810px Grid system</li>
+        <li>Basic styles (Headings, Buttons, Form)</li>
+      </ul>
     </section>
 
     <section id="compatibility" class="content-section last">
       <h2 class="section-title">BROWSER COMPATIBILITY</h2>
     </section>
     
+    <section id="useful-links" class="content-section last">
+      <h2 class="section-title">Useful links</h2>
+      <div class="row">
+        <div class="col12">
+          <ol>
+            <li><a href="https://developers.facebook.com/web/" target="_blank">Facebook Developers</a> ( Create and manager your facebook application )</li>
+            <li><a href="https://developers.facebook.com/tools/debug" target="_blank">Facebook Debugger</a> ( When you get a facebook error, check your page's url with it )</li>
+            <li><a href="https://developers.facebook.com/docs/javascript/gettingstarted/" target="_blank">JS SDK</a></li>
+            <li><a href="https://developers.facebook.com/bugs/" target="_blank">Facebook Bugs</a></li>
+            <li><a href="http://facebook.stackoverflow.com/" target="_blank">Facebook x Stackoverflow</a></li>
+            <li><a href="https://developers.facebook.com/blog/">Developer Blog</a></li>
+            <li><a href="https://developers.facebook.com/docs/opengraph/" target="_blank">Open graph overview</a></li>
+            <li><a href="https://developers.facebook.com/docs/plugins/" target="_blank">Facebook Social plugins</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
     <section id="like-wrapper" style="display:none;">liked</section>
     <section id="unlike-wrapper" style="display:none;">unlike</section>

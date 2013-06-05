@@ -489,9 +489,21 @@ body {
 p {
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif; }
 
+h3 {
+  color: #000;
+  font-size: 22px; }
+
 h4 {
-  color: #a65270;
-  font-size: 20px; }
+  color: #333;
+  font-size: 18px; }
+
+li {
+  line-height: 2em; }
+
+a {
+  color: #6f374b; }
+  a:hover {
+    color: #dea567; }
 
 .fbframe {
   width: 810px;
@@ -613,6 +625,9 @@ h4 {
 .intro {
   text-align: left; }
 
+.note {
+  color: #cd4552; }
+
 .section-grid .col1, .section-grid .col2, .section-grid .col3, .section-grid .col4, .section-grid .col5, .section-grid .col6, .section-grid .col7, .section-grid .col8, .section-grid .col9, .section-grid .col10, .section-grid .col11, .section-grid .col12 {
   background: #dea567;
   color: #592c3c;
@@ -640,15 +655,111 @@ h4 {
   letter-spacing: 2px;
   padding: 12px 35px; }
 
-pre {
-  color: #fff;
-  text-align: left;
-  padding: 15px 20px;
-  background-color: #333;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd; }
-  pre strong {
-    color: #dea567; }
-  pre em {
-    font-size: .9em;
-    color: #999; }
+pre.prettyprint {
+  padding: 20px !important; }
+pre em {
+  font-size: .9em; }
+
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint {
+  display: block;
+  background-color: #333333; }
+
+pre .nocode {
+  background-color: none;
+  color: black; }
+
+pre .str {
+  color: #ffa0a0; }
+
+/* string  - pink */
+pre .kwd {
+  color: #f0e68c;
+  font-weight: bold; }
+
+pre .com {
+  color: skyblue; }
+
+/* comment - skyblue */
+pre .typ {
+  color: palegreen; }
+
+/* type    - lightgreen */
+pre .lit {
+  color: indianred; }
+
+/* literal - darkred */
+pre .pun {
+  color: white; }
+
+/* punctuation */
+pre .pln {
+  color: white; }
+
+/* plaintext */
+pre .tag {
+  color: #f0e68c;
+  font-weight: bold; }
+
+/* html/xml tag    - lightyellow */
+pre .atn {
+  color: #bdb76b;
+  font-weight: bold; }
+
+/* attribute name  - khaki */
+pre .atv {
+  color: #ffa0a0; }
+
+/* attribute value - pink */
+pre .dec {
+  color: palegreen; }
+
+/* decimal         - lightgreen */
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #aeaeae; }
+
+/* IE indents via margin-left */
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: none; }
+
+/* Alternate shading for lines */
+@media print {
+  pre.prettyprint {
+    background-color: none; }
+
+  pre .str, code .str {
+    color: #006600; }
+
+  pre .kwd, code .kwd {
+    color: #006;
+    font-weight: bold; }
+
+  pre .com, code .com {
+    color: #600;
+    font-style: italic; }
+
+  pre .typ, code .typ {
+    color: #404;
+    font-weight: bold; }
+
+  pre .lit, code .lit {
+    color: #004444; }
+
+  pre .pun, code .pun {
+    color: #444400; }
+
+  pre .pln, code .pln {
+    color: black; }
+
+  pre .tag, code .tag {
+    color: #006;
+    font-weight: bold; }
+
+  pre .atn, code .atn {
+    color: #440044; }
+
+  pre .atv, code .atv {
+    color: #006600; } }
