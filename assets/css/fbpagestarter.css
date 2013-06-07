@@ -490,11 +490,11 @@ p {
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif; }
 
 h3 {
-  color: #000;
+  color: #dea567;
   font-size: 22px; }
 
 h4 {
-  color: #333;
+  color: #6f374b;
   font-size: 18px; }
 
 li {
@@ -642,6 +642,21 @@ a {
 .section-grid .nested {
   padding: 20px 0; }
 
+.grid-demo-2 div {
+  text-align: justify; }
+.grid-demo-2 .main {
+  line-height: 0; }
+
+.left-margin {
+  margin-left: 20px; }
+
+.tab-nav {
+  background-color: #333;
+  margin: 0; }
+  .tab-nav li {
+    color: #fff;
+    text-align: center; }
+
 .footer {
   font-size: 12px;
   letter-spacing: 2px;
@@ -655,10 +670,12 @@ a {
   letter-spacing: 2px;
   padding: 12px 35px; }
 
-pre.prettyprint {
-  padding: 20px !important; }
-pre em {
-  font-size: .9em; }
+pre {
+  font-size: .95em; }
+  pre.prettyprint {
+    padding: 20px !important; }
+  pre em {
+    font-size: .9em; }
 
 /* desert scheme ported from vim to google prettify */
 pre.prettyprint {

@@ -22,12 +22,12 @@ p{
 }
 
 h3{
-  color: #000;
+  color: $link-color;
   font-size: 22px;
 }
 
 h4{
-  color: #333;
+  color: $brand-color;
   font-size: 18px;
 }
 
@@ -203,6 +203,28 @@ a{
   }
 }
 
+.grid-demo-2{
+  div{
+    text-align: justify;
+  }
+  .main{
+    line-height: 0;
+  }
+}
+
+.left-margin{
+  margin-left: 20px;
+}
+
+.tab-nav{
+  background-color: #333;
+  margin: 0;
+  li{
+    color: #fff;
+    text-align: center;
+  }
+}
+
 .footer{
   font-size: 12px;
   letter-spacing: 2px;
@@ -219,6 +241,7 @@ a{
 }
 
 pre{
+  font-size: .95em;
   &.prettyprint{
     padding: 20px !important;
   }
