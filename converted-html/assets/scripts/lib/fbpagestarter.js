@@ -39,20 +39,19 @@
       $(document).trigger('fb:initialized');
       FB.Canvas.setDoneLoading( function(response) {
         FB.Canvas.setAutoGrow();
-        console.log('in');
       });
 
       // Fan gate, Check like page status
       if(settings.activeFangate){
         FB.getLoginStatus(function(response) {
-          if (response.status == 'connected') {
+          if (response.status === 'connected') {
             var user_id = response.authResponse.userID;
             var page_id = settings.pageId; //coca cola
             var fql_query = "SELECT uid FROM page_fan WHERE page_id =" + page_id + " and uid=" + user_id;
             var the_query = FB.Data.query(fql_query);
 
             the_query.wait(function(rows) {
-              if (rows.length == 1 && rows[0].uid == user_id) {
+              if (rows.length === 1 && rows[0].uid === user_id) {
                 /* TODO, add a callback here! */
                 $('#'+settings.likedPage).show();
               } else {
@@ -92,7 +91,8 @@
         
       $('.fb-dialog').click(function(e){
         e.preventDefault();
-        var dialogType = $(this).data('fbactiontype');
+        var dialogType = $(this).data('fbactiontype'),
+            obj;
         
         switch (dialogType) {
           case 'add_page_tab': 
@@ -105,7 +105,7 @@
           break;
           
           case 'share': 
-            var obj = {
+            obj = {
                method:      'feed',
                link:        $(this).data('link'),
                picture:     $(this).data('picture'),
@@ -117,7 +117,7 @@
           break;
 
           case 'requests':
-            var obj = {
+            obj = {
                method:  'apprequests',
                message: $(this).data('message')
              };
@@ -125,7 +125,7 @@
           break;
 
           case 'send':
-            var obj = {
+            obj = {
               method: 'send',
               name:    $(this).data('name'),
               picture: $(this).data('picture'),

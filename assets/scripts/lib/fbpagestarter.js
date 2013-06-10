@@ -1,4 +1,5 @@
 (function( $ ) { 
+  "use strict";
   $.fn.fbStarter= function(options) {
     var settings = $.extend({
         appId                : '',
@@ -19,8 +20,6 @@
         dialogFail           : function(){}
     }, options);
 
-    var channelUrl = settings.canvasUrl + '/channel.html';
-
     // FB initiation
     // -------------------------------------------------------------------
     window.fbInit = window.fbInit || false;
@@ -39,20 +38,19 @@
       $(document).trigger('fb:initialized');
       FB.Canvas.setDoneLoading( function(response) {
         FB.Canvas.setAutoGrow();
-        console.log('in');
       });
 
       // Fan gate, Check like page status
       if(settings.activeFangate){
         FB.getLoginStatus(function(response) {
-          if (response.status == 'connected') {
-            var user_id = response.authResponse.userID;
-            var page_id = settings.pageId; //coca cola
-            var fql_query = "SELECT uid FROM page_fan WHERE page_id =" + page_id + " and uid=" + user_id;
-            var the_query = FB.Data.query(fql_query);
+          if (response.status === 'connected') {
+            var user_id = response.authResponse.userID,
+                page_id = settings.pageId,
+                fql_query = "SELECT uid FROM page_fan WHERE page_id =" + page_id + " and uid=" + user_id,
+                fb_query = FB.Data.query(fql_query);
 
-            the_query.wait(function(rows) {
-              if (rows.length == 1 && rows[0].uid == user_id) {
+            fb_query.wait(function(rows) {
+              if (rows.length === 1 && rows[0].uid === user_id) {
                 /* TODO, add a callback here! */
                 $('#'+settings.likedPage).show();
               } else {
@@ -61,8 +59,8 @@
               }
             });
           } else {
+            $('#'+settings.askPermission).show();
             /* TODO, add a callback here! */
-            console.log('not login');
           }
         });
       }
@@ -87,12 +85,11 @@
 
     // Main functions
     // -------------------------------------------------------------------
-    return this.each( function() {
-      var $this = $(this);
-        
+    return this.each( function() {        
       $('.fb-dialog').click(function(e){
         e.preventDefault();
-        var dialogType = $(this).data('fbactiontype');
+        var dialogType = $(this).data('fbactiontype'),
+            obj;
         
         switch (dialogType) {
           case 'add_page_tab': 
@@ -105,7 +102,7 @@
           break;
           
           case 'share': 
-            var obj = {
+            obj = {
                method:      'feed',
                link:        $(this).data('link'),
                picture:     $(this).data('picture'),
@@ -117,7 +114,7 @@
           break;
 
           case 'requests':
-            var obj = {
+            obj = {
                method:  'apprequests',
                message: $(this).data('message')
              };
@@ -125,7 +122,7 @@
           break;
 
           case 'send':
-            var obj = {
+            obj = {
               method: 'send',
               name:    $(this).data('name'),
               picture: $(this).data('picture'),
@@ -133,7 +130,7 @@
             };
             callUI(obj);
           break;
-        };
+        }
       });
 
       // Add tab to page
@@ -143,17 +140,17 @@
           method: 'pagetab',
           redirect_uri: redirect_uri
         }, function(response) {
-          if (response != null && response.tabs_added != null) {
+          if (response !== null && response.tabs_added !== null) {
             $.each(response.tabs_added, function(pageid) {
-            FB.api(pageid, function(response) {
-              $('#msg').text('Your tab has already been installed');
+              FB.api(pageid, function(response) {
+                $('#msg').text('Your tab has already been installed');
+              });
             });
-          });
           } else {
             $('#msg').text('Action cancelled, unable to install a page');
           }
         });
-      };
+      }
 
       // Get permissions
       function permissions(getPermissions){
@@ -168,7 +165,7 @@
             }
           }
         }, {scope: getPermissions});
-      };
+      }
 
       // Post to timeline
       function callUI(obj){
@@ -183,9 +180,7 @@
             }
           }
         });
-      };
-
-
+      }
     });
   };
 })( jQuery );
