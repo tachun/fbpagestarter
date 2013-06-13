@@ -36,8 +36,10 @@
       $(document).trigger('fb:initializing');
       FB.init(settings);
       $(document).trigger('fb:initialized');
-      FB.Canvas.setDoneLoading( function(response) {
-        FB.Canvas.setAutoGrow();
+      FB.Canvas.setDoneLoading( function(result) {
+        // an trick for 'shrink' page height
+        FB.Canvas.setSize({height:600});
+        setTimeout("FB.Canvas.setAutoGrow()",300);
       });
 
       // Fan gate, Check like page status
