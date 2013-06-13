@@ -17,5 +17,6 @@ $(function(){
       });
     }
   });
-
+  var outpageHeight = $(document).height();
+  console.log('outpageHeight:' + outpageHeight)
 });
