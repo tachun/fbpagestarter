@@ -1,0 +1,63 @@
+{% block content %}
+  {% assign current_p = "start" %}
+  {% include "header" %}
+
+  <article class="homepage main-content">
+    <p class="article-intro">
+      Fbpagestarter is front-end kit that makes it easy to create an application on Facebook.
+    </p>
+    <section id="" class="content-section">
+      <h3 class="section-title">GETTING STARTED</h3>
+      <h4>Include fbpagestarter plugin</h4>
+      <p class="article-intro">
+        Include <strong>fbpagestarter.js</strong> after you've included jQuery.
+      </p>
+      <pre class="prettyprint"><code class="language-html">&lt;script src="/PATH/TO/fbpagestarter.min.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h4>Basic Usage</h4>
+<pre class="prettyprint"><code class="language-js">$(function(){
+  $(document).<strong>fbStarter</strong>({
+    appId     : '<strong>YOUR APP ID</strong>',
+    pageId    : '<strong>YOUR PAGE ID</strong>',
+    canvasUrl : '<strong>//YOUR_CANVAS_URL</strong>'  <em>//ex: '//blabla.com/'</em>
+  });
+});</code></pre>
+      
+      <h4>Advance Usage</h4>
+<pre class="prettyprint"><code class="language-js">$(function(){
+  $(document).<strong>fbStarter</strong>({
+    appId              : '<strong>YOUR APP ID</strong>',
+    pageId             : '<strong>YOUR PAGE ID</strong>',
+    locales            : '<strong>fr_FR</strong>',  <em>//Your locale, default is en_US</em>
+    canvasUrl          : '<strong>//YOUR_CANVAS_URL</strong>',  <em>//ex: '//blabla.com/'</em>
+    activeFangate      : <strong>true</strong>,  <em>//Active Fangate</em>
+    dialogSuccess      : <strong>function(){
+      <em>//Custome callback function for dialog submit success</em>
+      console.log('dialog success');
+    }</strong>,
+    dialogFail         : <strong>function(){  
+      <em>//Custome callback function when user close dialog without submit</em>
+      console.log('dialog canceled');
+    }</strong>,
+    permissionsSuccess : <strong>function(){
+      <em>//Custome callback function for authentication success</em>
+      FB.api('/me', function(response) {
+        console.log('Hello! ' + response.name + '.');
+      });
+    }</strong>
+  });
+});</code></pre>
+
+
+      <h4>Css</h4>
+      <p class="article-intro">
+        If you want to use FBPAGESTARTER's grid system, add a class "<strong>page-container</strong>"" on your application's main wrapper.
+      </p>
+      <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
+    </section>
+    
+
+    <section id="like-wrapper" style="display:none;">liked</section>
+    <section id="unlike-wrapper" style="display:none;">unlike</section>
+  </article>
+{% endblock %}

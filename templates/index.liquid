@@ -6,56 +6,6 @@
     <p class="article-intro">
       Fbpagestarter is front-end kit that makes it easy to create an application on Facebook.
     </p>
-    <section id="" class="content-section">
-      <h3 class="section-title">GETTING STARTED</h3>
-      <h4>Include fbpagestarter plugin</h4>
-      <p class="article-intro">
-        Include <strong>fbpagestarter.js</strong> after you've included jQuery.
-      </p>
-      <pre class="prettyprint"><code class="language-html">&lt;script src="/PATH/TO/fbpagestarter.min.js"&gt;&lt;/script&gt;</code></pre>
-      
-      <h4>Basic Usage</h4>
-<pre class="prettyprint"><code class="language-js">$(function(){
-  $(document).<strong>fbStarter</strong>({
-    appId     : '<strong>YOUR APP ID</strong>',
-    pageId    : '<strong>YOUR PAGE ID</strong>',
-    canvasUrl : '<strong>//YOUR_CANVAS_URL</strong>'  <em>//ex: '//blabla.com/'</em>
-  });
-});</code></pre>
-      
-      <h4>Advance Usage</h4>
-<pre class="prettyprint"><code class="language-js">$(function(){
-  $(document).<strong>fbStarter</strong>({
-    appId              : '<strong>YOUR APP ID</strong>',
-    pageId             : '<strong>YOUR PAGE ID</strong>',
-    locales            : '<strong>fr_FR</strong>',  <em>//Your locale, default is en_US</em>
-    canvasUrl          : '<strong>//YOUR_CANVAS_URL</strong>',  <em>//ex: '//blabla.com/'</em>
-    activeFangate      : <strong>true</strong>,  <em>//Active Fangate</em>
-    dialogSuccess      : <strong>function(){
-      <em>//Custome callback function for dialog submit success</em>
-      console.log('dialog success');
-    }</strong>,
-    dialogFail         : <strong>function(){  
-      <em>//Custome callback function when user close dialog without submit</em>
-      console.log('dialog canceled');
-    }</strong>,
-    permissionsSuccess : <strong>function(){
-      <em>//Custome callback function for authentication success</em>
-      FB.api('/me', function(response) {
-        console.log('Hello! ' + response.name + '.');
-      });
-    }</strong>
-  });
-});</code></pre>
-
-
-      <h4>Css</h4>
-      <p class="article-intro">
-        If you want to use FBPAGESTARTER's grid system, add a class "<strong>page-container</strong>"" on your application's main wrapper.
-      </p>
-      <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
-    </section>
-
     <section id="features" class="content-section">
       <h3 class="section-title">Features</h3>
       <ul>
@@ -68,12 +18,27 @@
       </ul>
     </section>
 
-    <section id="compatibility" class="content-section last">
-      <h2 class="section-title">BROWSER COMPATIBILITY</h2>
+    <section id="compatibility" class="content-section">
+      <h3 class="section-title">BROWSER COMPATIBILITY</h3>
+    </section>
+
+    <section id="useful-links" class="content-section last">
+      <h3 class="section-title">Useful links</h3>
+      <div class="row">
+        <div class="col12">
+          <ol>
+            <li><a href="https://developers.facebook.com/web/" target="_blank">Facebook Developers</a> ( Create and manager your facebook application )</li>
+            <li><a href="https://developers.facebook.com/tools/debug" target="_blank">Facebook Debugger</a> ( When you get a facebook error, check your page's url with it )</li>
+            <li><a href="https://developers.facebook.com/docs/javascript/gettingstarted/" target="_blank">JS SDK</a></li>
+            <li><a href="https://developers.facebook.com/bugs/" target="_blank">Facebook Bugs</a></li>
+            <li><a href="http://facebook.stackoverflow.com/" target="_blank">Facebook x Stackoverflow</a></li>
+            <li><a href="https://developers.facebook.com/blog/">Developer Blog</a></li>
+            <li><a href="https://developers.facebook.com/docs/opengraph/" target="_blank">Open graph overview</a></li>
+            <li><a href="https://developers.facebook.com/docs/plugins/" target="_blank">Facebook Social plugins</a></li>
+          </ol>
+        </div>
+      </div>
     </section>
     
-
-    <section id="like-wrapper" style="display:none;">liked</section>
-    <section id="unlike-wrapper" style="display:none;">unlike</section>
   </article>
 {% endblock %}
