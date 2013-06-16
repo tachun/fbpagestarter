@@ -184,12 +184,21 @@
         });
       }
 
-      function scrollTo(x,y){
-        $('.fb-scrollto').on('click',function(e){
-          e.preventDefault();
-          FB.Canvas.scrollTo(500,0);
+      // Canvas scrollTo function
+      $('.fb-scrollto').on('click',function(e){
+        e.preventDefault(e);
+        var offset = $(this).data('offset'),
+            speed  = $(this).data('speed');
+        FB.Canvas.getPageInfo(function(pageInfo){
+          $({y: pageInfo.scrollTop}).animate(
+            {y: y},
+            {duration: speed, step: function(offset){
+              FB.Canvas.scrollTo(0, offset);
+            }
+          });
         });
-      }
+      });
+
     });
   };
 
