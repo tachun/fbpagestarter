@@ -602,7 +602,7 @@ a {
   color: #dea567; }
 
 .content-section {
-  padding: 40px 0;
+  padding: 20px 0 30px 0;
   border-bottom: 1px solid #ddd; }
 
 .content-section.last {
@@ -650,11 +650,26 @@ a {
 .left-margin {
   margin-left: 20px; }
 
-.tab-nav {
-  background-color: #333;
+.browsers-img {
+  width: 500px;
+  margin: 20px 0 0 20px; }
+
+.browsers-list {
+  list-style: none;
+  padding: 0;
   margin: 0; }
+  .browsers-list li {
+    display: inline-block;
+    width: 106px;
+    text-align: center; }
+
+.tab-nav {
+  background-color: #000;
+  color: #fff;
+  font-size: .9em;
+  margin: 0;
+  padding: 5px 0; }
   .tab-nav li {
-    color: #fff;
     text-align: center; }
 
 .footer {
@@ -676,6 +691,18 @@ pre {
     padding: 20px !important; }
   pre em {
     font-size: .9em; }
+
+.user-info {
+  letter-spacing: 1px;
+  padding: 10px; }
+  .user-info p, .user-info em {
+    font-weight: bold; }
+  .user-info em {
+    color: #555;
+    padding-right: 10px; }
+  .user-info img {
+    border-radius: 50%;
+    border: 3px solid #999; }
 
 /* desert scheme ported from vim to google prettify */
 pre.prettyprint {

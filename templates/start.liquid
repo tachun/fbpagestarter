@@ -3,9 +3,6 @@
   {% include "header" %}
 
   <article class="homepage main-content">
-    <p class="article-intro">
-      Fbpagestarter is front-end kit that makes it easy to create an application on Facebook.
-    </p>
     <section id="" class="content-section">
       <h3 class="section-title">GETTING STARTED</h3>
       <h4>Include fbpagestarter plugin</h4>
@@ -42,17 +39,35 @@
     permissionsSuccess : <strong>function(){
       <em>//Custome callback function for authentication success</em>
       FB.api('/me', function(response) {
-        console.log('Hello! ' + response.name + '.');
+        <em>//Fetch user data</em>
+        var userName =  response.name,
+            userID =  response.id,
+            userBirthday =  response.birthday,
+            userLocale =  response.locale,
+            userHometown =  response.hometown.name,
+            userEmail =  response.email,
+            userLink =  response.link,
+            userPicture = 
+            '&lt;img src="//graph.facebook.com/'+response.username+'/picture"&gt;',
+            userData = userName + userID + userBirthday + userLocale + 
+                       userHometown + userEmail + userLink + userPicture;
+        console.log(userData);
       });
     }</strong>
   });
 });</code></pre>
 
 
-      <h4>Css</h4>
+      <h4>Grid system</h4>
       <p class="article-intro">
-        If you want to use FBPAGESTARTER's grid system, add a class "<strong>page-container</strong>"" on your application's main wrapper.
+        If you want to use FBPAGESTARTER's grid system, include <strong>810pxGrid.css</strong> into your project.
       </p>
+      <pre class="prettyprint"><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="/PATH/TO/810pxGrid.css"&gt;</code></pre>
+      
+      <p class="article-intro">
+        Add a class "<strong>page-container</strong>" on your application's main wrapper to use this grid system.
+      </p>
+
       <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
     </section>
     

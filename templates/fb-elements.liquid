@@ -4,7 +4,7 @@
   
   <article class="fb-elements main-content">
     <p class="article-intro">
-      Trigger a facebook dialog is very simple, add a <strong>'fb-dialog'</strong> class on your element, than add a <strong>'data-fbactiontype'</strong> attribute with action that you want to use.
+      Trigger a facebook dialog is very simple, add a <strong>'fb-dialog'</strong> class on your element, than add a <strong>'data-fbactiontype'</strong> attribute with actions that you want to use.
     </p>
     <section class="content-section">
       <h3 class="section-title">Add Page Tab</h3>
@@ -27,7 +27,7 @@
 
       <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" <strong>data-fbactiontype="permissions"</strong> <strong>data-permissions="email,user_birthday,publish_actions"</strong>&gtAsk Permissions&lt;/button&gt</code></pre>
 
-      <div id="user-info"></div>
+      <div id="user-info" class="user-info"></div>
     </section>
 
     <section class="content-section">
@@ -67,11 +67,25 @@ Ask Permissions&lt;/button&gt</code></pre>
       </p>
     </section>
     
-    <section class="content-section last">
+    <section class="content-section">
       <h3 class="section-title">Send</h3>
       <p class="intro">The Send Dialog allows a user to send a Facebook Message to one or more of their friends.</p>
 
       <button class="fb-dialog btn" data-fbactiontype="send" data-name="This is a send dialog" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/share-icon.jpg">Send</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" 
+        <strong>data-fbactiontype="send"</strong>
+        <strong>data-name="TITLE"</strong>
+        <strong>data-link="YOUR_LINK"</strong>
+        <strong>data-picture="AN_IMAGE_AT_LEAST_200PX_WITH_ABSOLUTE_URL"</strong>&gt
+Multi Friend Selector Requests&lt;/button&gt</code></pre>
+    </section>
+
+    <section class="content-section last">
+      <h3 class="section-title">Scroll to</h3>
+      <p class="intro">To scroll to a specific location of your canvas page.</p>
+
+      <button class="fb-scrollto btn">Scroll to</button>
 
       <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" 
         <strong>data-fbactiontype="send"</strong>
