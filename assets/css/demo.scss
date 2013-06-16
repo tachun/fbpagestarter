@@ -151,7 +151,7 @@ a{
 }
 
 .content-section{
-  padding: 40px 0;
+  padding: 20px 0 30px 0;
   border-bottom: 1px solid #ddd;
 }
 
@@ -216,11 +216,29 @@ a{
   margin-left: 20px;
 }
 
-.tab-nav{
-  background-color: #333;
+.browsers-img{
+  width: 500px;
+  margin: 20px 0 0 20px;
+}
+
+.browsers-list{
+  list-style: none;
+  padding: 0;
   margin: 0;
   li{
-    color: #fff;
+    display: inline-block;
+    width: 106px;
+    text-align: center;
+  }
+}
+
+.tab-nav{
+  background-color: #000;
+  color: #fff;
+  font-size: .9em;
+  margin: 0;
+  padding: 5px 0;
+  li{
     text-align: center;
   }
 }
@@ -247,6 +265,23 @@ pre{
   }
   em{
     font-size: .9em;
+  }
+}
+
+// for display user information
+.user-info{
+  letter-spacing: 1px;
+  padding: 10px;
+  p, em{
+    font-weight: bold;
+  }
+  em{
+    color: #555;
+    padding-right: 10px;
+  }
+  img{
+    border-radius: 50%;
+    border: 3px solid #999;
   }
 }
 

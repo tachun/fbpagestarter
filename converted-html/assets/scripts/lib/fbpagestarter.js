@@ -87,8 +87,8 @@
 
     // Main functions
     // -------------------------------------------------------------------
-    return this.each( function() {        
-      $('.fb-dialog').click(function(e){
+    return this.each( function() {      
+      $('.fb-dialog').on('click',function(e){
         e.preventDefault();
         var dialogType = $(this).data('fbactiontype'),
             obj;
@@ -183,7 +183,15 @@
           }
         });
       }
+
+      function scrollTo(x,y){
+        $('.fb-scrollto').on('click',function(e){
+          e.preventDefault();
+          FB.Canvas.scrollTo(500,0);
+        });
+      }
     });
   };
+
 })( jQuery );
 
