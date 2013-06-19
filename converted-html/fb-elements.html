@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <!-- Title block allowing child pages to override -->
-    <title>fbpagestarter</title>
-    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <title>FBPAGESTARTER - a Front-end kit for facebook pages</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.png" />
     <!-- Styles -->
     <link href="assets/css/fbpagestarter.min.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Style block allowing child pages to inject their own styles -->
@@ -30,7 +30,7 @@
     &bull;
     <li><a href="grid.html" >Grids</a></li>
     &bull;
-    <li><a href="template" >Examples</a></li>
+    <li><a href="example.html" >Examples</a></li>
   </ul>
 </nav>
   
@@ -113,18 +113,28 @@ Ask Permissions&lt;/button&gt</code></pre>
 Multi Friend Selector Requests&lt;/button&gt</code></pre>
     </section>
 
-    <section class="content-section last">
+    <section class="content-section">
       <h3 class="section-title">Scroll to</h3>
-      <p class="intro">To scroll to a specific location of your canvas page.</p>
+      <p class="intro">To scroll to a specific location of your canvas page.</p> 
 
-      <button class="fb-scrollto btn" data-offset='500' data-speed='1000'>Scroll to</button>
+      <p class="article-intro">Use <strong>'fb-scrollto'</strong> class to activate this function, then add <strong>'data-offset'</strong> to define a y position that you want to scroll to, and use <strong>'data-speed'</strong> value to control animation duration (default speed is 500).</p>
 
-      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-dialog</strong>" 
-        <strong>data-fbactiontype="send"</strong>
-        <strong>data-name="TITLE"</strong>
-        <strong>data-link="YOUR_LINK"</strong>
-        <strong>data-picture="AN_IMAGE_AT_LEAST_200PX_WITH_ABSOLUTE_URL"</strong>&gt
-Multi Friend Selector Requests&lt;/button&gt</code></pre>
+      <button class="fb-scrollto btn" data-offset='20' data-speed='500'>Scroll to</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-scrollto</strong>" <strong>data-offset="20"</strong> <strong>data-speed="500"</strong>&gtScroll to&lt;/button&gt</code></pre>
+    </section>
+
+    <section class="content-section last">
+      <h3 class="section-title">Resize Canvas Height</h3>
+      <p class="intro">Tells Facebook to resize your canvas page to a specific height.</p>
+
+      <p class="article-intro">Use <strong>'fb-setsize'</strong> class to activate this function, then add <strong>'data-height'</strong> to define a new canavas height.</p>
+
+      <button class="fb-setsize btn" data-height='300'>Setsize</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-setsize</strong>" <strong>data-height="300"</strong>&gtResize canvas height&lt;/button&gt</code></pre>
+
+      <button class="fb-autosize btn">Auto resize</button>
     </section>
   </article>
 

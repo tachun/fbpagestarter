@@ -11,6 +11,7 @@
         canvasUrl            : '',
         frictionlessRequests : true,
         
+        autoResize           : true,
         activeFangate        : false,
         likedPage            : 'like-wrapper',
         unlikePage           : 'unlike-wrapper',
@@ -36,11 +37,15 @@
       $(document).trigger('fb:initializing');
       FB.init(settings);
       $(document).trigger('fb:initialized');
-      FB.Canvas.setDoneLoading( function(result) {
-        // an trick for 'shrink' page height
-        FB.Canvas.setSize({height:600});
-        setTimeout("FB.Canvas.setAutoGrow()",300);
-      });
+
+      // Auto resize canavs
+      if(settings.autoResize === true){
+        FB.Canvas.setDoneLoading( function(result) {
+          // a trick for 'shrink' page height
+          FB.Canvas.setSize({height:600});
+          setTimeout("FB.Canvas.setAutoGrow()",300);
+        });
+      }
 
       // Fan gate, Check like page status
       if(settings.activeFangate){
@@ -185,10 +190,11 @@
       }
 
       // Canvas scrollTo function
+      var speed = 500;
       $('.fb-scrollto').on('click',function(e){
         e.preventDefault(e);
-        var offset = $(this).data('offset'),
-            speed  = $(this).data('speed');
+        var y = $(this).data('offset'),
+            speed = $(this).data('speed');
         FB.Canvas.getPageInfo(function(pageInfo){
           $({y: pageInfo.scrollTop}).animate(
             {y: y},
@@ -196,6 +202,24 @@
               FB.Canvas.scrollTo(0, offset);
             }
           });
+        });
+      });
+
+      // Canvas setSize function
+      $('.fb-setsize').on('click',function(e){
+        e.preventDefault(e);
+        var newHeight = $(this).data('height'),
+            newWidth  = $(this).data('width');
+        FB.Canvas.setSize({ width: 810, height: newHeight });
+      });
+
+      // Canvas auto resize
+      $('.fb-autosize').on('click',function(e){
+        e.preventDefault(e);
+        FB.Canvas.setDoneLoading( function(result) {
+          // a trick for 'shrink' page height
+          FB.Canvas.setSize({height:600});
+          setTimeout("FB.Canvas.setAutoGrow()",300);
         });
       });
 

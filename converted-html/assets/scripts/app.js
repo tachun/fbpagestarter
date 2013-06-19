@@ -5,6 +5,7 @@ $(function(){
     pageId             : '109403935810224',
     locales            : 'fr_FR',
     canvasUrl          : '//demo.fbdoctor.com/fbpagestarter/',
+    autoResize         : false,
     dialogSuccess      : function(){
       console.log('dialog success');
     },
