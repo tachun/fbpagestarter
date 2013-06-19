@@ -83,25 +83,29 @@ Multi Friend Selector Requests&lt;/button&gt</code></pre>
 
     <section class="content-section">
       <h3 class="section-title">Scroll to</h3>
-      <p class="intro">To scroll to a specific location of your canvas page.</p>
+      <p class="intro">To scroll to a specific location of your canvas page.</p> 
 
-      <button class="fb-scrollto btn" data-offset='500' data-speed='1000'>Scroll to</button>
+      <p class="article-intro">Use <strong>'fb-scrollto'</strong> class to activate this function, then add <strong>'data-offset'</strong> to define a y position that you want to scroll to, and use <strong>'data-speed'</strong> value to control animation duration (default speed is 500).</p>
 
-      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-scrollto</strong>" 
-        <strong>data-offset="0"</strong>
-        <strong>data-speed="500"</strong>&gt
-Scroll to a location&lt;/button&gt</code></pre>
+      <button class="fb-scrollto btn" data-offset='20' data-speed='500'>Scroll to</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-scrollto</strong>" <strong>data-offset="20"</strong> <strong>data-speed="500"</strong>&gtScroll to&lt;/button&gt</code></pre>
     </section>
 
     <section class="content-section last">
-      <h3 class="section-title">Reset Canvas Height</h3>
-      <p class="intro">To resize your canvas page to a specific height.</p>
+      <h3 class="section-title">Resize Canvas Height</h3>
+      <p class="intro">Tells Facebook to resize your canvas page to a specific height.</p>
 
-      <button class="fb-setsize btn" data-height='200'>Scroll to</button>
+      <p class="article-intro">Use <strong>'fb-setsize'</strong> class to activate this function, then add <strong>'data-height'</strong> to define a new canavas height.</p>
 
-      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-setsize</strong>" 
-        <strong>data-height="200"</strong>&gt
-Resize canvas height&lt;/button&gt</code></pre>
+      <button class="fb-setsize btn" data-height='300'>Setsize</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-setsize</strong>" <strong>data-height="300"</strong>&gtResize canvas height&lt;/button&gt</code></pre>
+      
+      <p class="note">
+        *This function isn't work in this demo, it must to set 'autoResize' option to false, otherwise it will 
+      </p>
+
     </section>
   </article>
 {% endblock %}

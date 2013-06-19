@@ -9,8 +9,7 @@
         xfbml                : true,
         locales              : 'en_US',
         canvasUrl            : '',
-        frictionlessRequests : true,
-        
+        frictionlessRequests : true, //enable users to send Requests to specific friends
         autoResize           : true,
         activeFangate        : false,
         likedPage            : 'like-wrapper',
@@ -190,10 +189,11 @@
       }
 
       // Canvas scrollTo function
+      var speed = 500;
       $('.fb-scrollto').on('click',function(e){
         e.preventDefault(e);
         var y = $(this).data('offset'),
-            speed  = $(this).data('speed');
+            speed = $(this).data('speed');
         FB.Canvas.getPageInfo(function(pageInfo){
           $({y: pageInfo.scrollTop}).animate(
             {y: y},
@@ -207,8 +207,19 @@
       // Canvas setSize function
       $('.fb-setsize').on('click',function(e){
         e.preventDefault(e);
-        var newHeight = $(this).data('height');
-        FB.Canvas.setSize({ width: newWidth, height: newHeight });
+        var newHeight = $(this).data('height'),
+            newWidth  = $(this).data('width');
+        FB.Canvas.setSize({ width: 810, height: newHeight });
+      });
+
+      // Canvas auto resize
+      $('.fb-autosize').on('click',function(e){
+        e.preventDefault(e);
+        FB.Canvas.setDoneLoading( function(result) {
+          // a trick for 'shrink' page height
+          FB.Canvas.setSize({height:600});
+          setTimeout("FB.Canvas.setAutoGrow()",300);
+        });
       });
 
     });
