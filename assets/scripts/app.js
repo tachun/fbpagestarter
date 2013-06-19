@@ -17,11 +17,10 @@ $(function(){
             userID = "<em>user id:</em> " + response.id,
             userBirthday = "<em>user birthday:</em> " + response.birthday,
             userLocale = "<em>user locale:</em> " + response.locale,
-            userHometown = "<em>user hometown:</em> " + response.hometown.name,
             userEmail = "<em>user email:</em> " + response.email,
             userLink = "<em>user link:</em> " + response.link,
             userPicture = '<img src="//graph.facebook.com/'+response.username+'/picture?width=60&height=60">',
-            userData = userName+'<br>'+userID+'<br>'+userBirthday+'<br>'+userLocale+'<br>'+userHometown+'<br>'+userEmail+'<br>'+userLink+'<br>'+userPicture;
+            userData = userName+'<br>'+userID+'<br>'+userBirthday+'<br>'+userLocale+'<br>'+userEmail+'<br>'+userLink+'<br>'+userPicture;
         $('#user-info').append('<p>Yes! we got permissions!</p>'+userData);
       });
     }
