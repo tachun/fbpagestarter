@@ -1,6 +1,6 @@
-(function( $ ) { 
+(function($) {
   "use strict";
-  $.fn.fbStarter= function(options) {
+  $.fn.fbStarter = function(options) {
     var settings = $.extend({
         appId                : '',
         pageId               : '',
@@ -39,10 +39,10 @@
 
       // Auto resize canavs
       if(settings.autoResize === true){
-        FB.Canvas.setDoneLoading( function(result) {
+        FB.Canvas.setDoneLoading( function() {
           // a trick for 'shrink' page height
           FB.Canvas.setSize({height:600});
-          setTimeout("FB.Canvas.setAutoGrow()",300);
+          setTimeout("FB.Canvas.setAutoGrow();",300);
         });
       }
 
@@ -215,10 +215,10 @@
       // Canvas auto resize
       $('.fb-autosize').on('click',function(e){
         e.preventDefault(e);
-        FB.Canvas.setDoneLoading( function(result) {
+        FB.Canvas.setDoneLoading( function() {
           // a trick for 'shrink' page height
           FB.Canvas.setSize({height:600});
-          setTimeout("FB.Canvas.setAutoGrow()",300);
+          setTimeout("FB.Canvas.setAutoGrow();",300);
         });
       });
 

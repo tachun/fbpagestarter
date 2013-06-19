@@ -44,13 +44,12 @@
             userID =  response.id,
             userBirthday =  response.birthday,
             userLocale =  response.locale,
-            userHometown =  response.hometown.name,
             userEmail =  response.email,
             userLink =  response.link,
             userPicture = 
             '&lt;img src="//graph.facebook.com/'+response.username+'/picture"&gt;',
-            userData = userName + userID + userBirthday + userLocale + 
-                       userHometown + userEmail + userLink + userPicture;
+            userData = userName + userID + userBirthday + userLocale + userEmail
+                       + userLink + userPicture;
         console.log(userData);
       });
     }</strong>
