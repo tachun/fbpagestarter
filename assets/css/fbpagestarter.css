@@ -626,9 +626,11 @@ a {
   text-align: left; }
 
 .note {
-  font-size: .9em;
+  font-size: .85em;
   font-weight: bold;
   color: #cd4552; }
+  .note a {
+    color: #cd4552; }
 
 .section-grid .col1, .section-grid .col2, .section-grid .col3, .section-grid .col4, .section-grid .col5, .section-grid .col6, .section-grid .col7, .section-grid .col8, .section-grid .col9, .section-grid .col10, .section-grid .col11, .section-grid .col12 {
   background: #dea567;

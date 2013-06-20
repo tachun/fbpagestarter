@@ -6,6 +6,7 @@
     <p class="article-intro">
       Trigger a facebook dialog is very simple, add a <strong>'fb-dialog'</strong> class on your element, than add a <strong>'data-fbactiontype'</strong> attribute with actions that you want to use.
     </p>
+
     <section class="content-section">
       <h3 class="section-title">Add Page Tab</h3>
       <p>The add page tab dialog allows a user to add an application to a Facebook Page which they administer.</p>
@@ -103,9 +104,18 @@ Multi Friend Selector Requests&lt;/button&gt</code></pre>
       <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-setsize</strong>" <strong>data-height="300"</strong>&gtResize canvas height&lt;/button&gt</code></pre>
       
       <p class="note">
-        *This function isn't work in this demo, it must to set 'autoResize' option to false, otherwise it will 
+        *This function isn't work in this demo, it must to set 'autoResize' option to false, you can find an example in <a href="">another demo</a>.
       </p>
-
     </section>
+
+    <section class="content-section">
+      <h3 class="section-title">Login</h3>
+      <p>This button uses the JavaScript SDK to present a graphical Login button that triggers the FB.login() function when clicked.</p>
+
+      <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+      
+      <pre class="prettyprint"><code class="language-html">&lt;fb:login-button show-faces="true" width="200" max-rows="1">&lt;/fb:login-button></code></pre>
+    </section>
+
   </article>
 {% endblock %}

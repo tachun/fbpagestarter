@@ -12,6 +12,7 @@
 $brand-color: #6f374b;
 $brand-color-dark: #592c3c;
 $link-color: #dea567;
+$red : #cd4552;
 
 body{
   text-align: center;
@@ -181,9 +182,12 @@ a{
 }
 
 .note{
-  font-size: .9em;
+  font-size: .85em;
   font-weight: bold;
-  color: #cd4552;
+  color: $red;
+  a{
+    color: $red;
+  }
 }
 
 .section-grid{
