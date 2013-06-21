@@ -602,20 +602,29 @@ a {
   .navigation li {
     font-size: 13px;
     display: inline-block;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     background-color: #fff; }
-    .navigation li a {
+    .navigation li .link {
       display: block;
       height: 100%;
-      color: #3c1632;
+      color: #592c3c;
       text-decoration: none;
-      padding: 10px 15px;
+      padding: 10px 30px;
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px; }
-      .navigation li a:hover, .navigation li a :active, .navigation li a.selected {
+      .navigation li .link:hover, .navigation li .link :active, .navigation li .link.selected {
         color: #fff;
-        background-color: #592c3c; }
+        background-color: #592c3c;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#592c3c), to(#6f374b));
+        /* Chrome, Safari 4+ */
+        background-image: -webkit-linear-gradient(top, #592c3c, #6f374b);
+        /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+        background-image: -moz-linear-gradient(top, #592c3c, #6f374b);
+        /* Firefox 3.6-15 */
+        background-image: -o-linear-gradient(top, #592c3c, #6f374b);
+        /* Opera 11.10-12.00 */
+        background-image: linear-gradient(to bottom, #592c3c, #6f374b); }
 
 .main-content {
   padding: 20px;
