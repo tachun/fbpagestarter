@@ -62,22 +62,23 @@ a{
 }
 
 .download-btn{
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: block;
-  color: #fff;
+  display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
-  border: 2px solid #fff;
-  width: 200px;
-  padding: 10px 0;
+  color: #fff;
+  border: 2px solid $brand-color;
+  background-color: $link-color;
+  padding: 15px 20px;
   text-decoration: none;
+  text-shadow: 1px 1px 2px #333;
+  @include border-radius(5px);
   @include transition (all .3s ease-in-out);
+  @include linear-gradient ($brand-color, $brand-color, $link-color);
+  -webkit-box-shadow: inset 0px 0px 1px 0px #ffffff;
+          box-shadow: inset 0px 0px 1px 0px #ffffff;
   &:hover{
-    color: $brand-color-dark;
-    border-color: $brand-color;
-    background-color: #EDECE8;
+    color: #fff;
+    @include linear-gradient ($brand-color-dark, $brand-color-dark, $link-color);
   }
 }
 
@@ -182,7 +183,7 @@ a{
 }
 
 .note{
-  font-size: .85em;
+  font-size: .8em;
   font-weight: bold;
   color: $red;
   a{
@@ -258,10 +259,30 @@ a{
   border-top: 1px solid #ddd;
 }
 
+.license{
+  font-size: .9em;
+}
+
+.social-links{
+  margin: 40px 0;
+  padding: 0;
+  li{
+    list-style: none;
+    display: inline-block;
+    width: 12%;
+  }
+}
+
 .btn{
   font-size: 18px;
   letter-spacing: 2px;
   padding: 12px 35px;
+  text-decoration: none;
+}
+
+.version{
+  font-size: .8em;
+  font-style: italic;
 }
 
 pre{

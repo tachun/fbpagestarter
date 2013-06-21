@@ -31,3 +31,19 @@
   filter: alpha(opacity=$opacity*100);
   opacity: $opacity;
 }
+
+@mixin border-radius ($radius) {
+  -webkit-border-radius: $radius;
+          border-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin linear-gradient ($bgcolor, $topcolor, $bottomcolor) {
+  background-color: $bgcolor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($topcolor), to($bottomcolor)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, $topcolor, $bottomcolor); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image:    -moz-linear-gradient(top, $topcolor, $bottomcolor); /* Firefox 3.6-15 */
+  background-image:      -o-linear-gradient(top, $topcolor, $bottomcolor); /* Opera 11.10-12.00 */
+  background-image:         linear-gradient(to bottom, $topcolor, $bottomcolor);
+}
+
