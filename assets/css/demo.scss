@@ -122,21 +122,24 @@ a{
   li{
     font-size: 13px;
     display: inline-block;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     background-color: #fff;
-    a{
+    .link{
       display: block;
       height: 100%;
-      color: #3c1632;
+      color: $brand-color-dark;
       text-decoration: none;
-      padding: 10px 15px;
+      padding: 10px 30px;
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
       &:hover, :active, &.selected{
         color: #fff;
-        background-color: $brand-color-dark;
+        @include linear-gradient ($brand-color-dark, $brand-color-dark, $brand-color);
       }
+    }
+    .btn{
+
     }
   }
 }

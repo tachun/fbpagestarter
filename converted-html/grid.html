@@ -22,30 +22,31 @@
 
 <nav class="navigation">
   <ul class="cf">
-    <li><a href="index.html" >Features</a></li>
+    <li><a href="index.html" class='link '>Overview</a></li>
     &bull;
-    <li><a href="start.html" >Getting Started</a></li>
+    <li><a href="start.html" class='link '>Getting Started</a></li>
     &bull;
-    <li><a href="fb-elements.html" >FB Elements</a></li>
+    <li><a href="fb-elements.html" class='link '>FACEBOOK ELEMENTS</a></li>
     &bull;
-    <li><a href="grid.html" class="selected">Grids</a></li>
-    &bull;
-    <li><a href="example.html" >Examples</a></li>
+    <li><a href="grid.html" class='link selected'>Grids</a></li>
+
+<!--     <li><a href="https://github.com/tachun/fbpagestarter/archive/master.zip" class="btn" target="_blank">Download</a></li> -->
   </ul>
 </nav>
 
   <article class="grid main-content">
-    <p class="article-intro">
-      Fbpagestarter is front-end starter kit that makes it easy to create an application on Facebook.
-    </p>
     <section class="content-section last">
       <h3 class="section-title">810px Grid system</h3>
       <p class="article-intro">
-        1. Add a class "<strong>page-container</strong>" to your application main wrapper
+        1. include <strong>810pxGrid.css</strong> into your project.
+      </p>
+      <pre class="prettyprint"><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="PATH/TO/810pxGrid.css"&gt;</code></pre>
+      <p class="article-intro">
+        2. Add a class "<strong>page-container</strong>" to your application main wrapper
       </p>
       <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;&lt;/div&gt;</code></pre>
       <p class="article-intro">
-        2. Play with class "<strong>row</strong>" and "<strong>col1" ~ "col12</strong>"
+        3. Play with class "<strong>row</strong>" and "<strong>col1" ~ "col12</strong>"
       </p>
       <pre class="prettyprint"><code class="language-html">&lt;div id="application" class="<strong>page-container</strong>"&gt;
   <em>// Basic 2 column layout</em>
@@ -76,7 +77,7 @@
     </section>
   </article>
 
-  <section id="section-grid" class="section-grid">
+  <section id="section-grid" class="section-grid last">
     <h3 class="section-title left-margin" >Demo - Grid preview</h3>
     <div class="row">
       <div class="col12"><p>col12</p></div>
@@ -162,7 +163,7 @@
   </section>
 
   <section class="content-section grid-demo-2 last">
-    <h3 class="section-title left-margin" >Demo - layout example</h3>
+    <h3 class="section-title left-margin" >Demo - Simple layout</h3>
     <div class="row main">
       <img src="http://placehold.it/810x200" alt="">
       <ul class="tab-nav col12">
@@ -206,11 +207,9 @@
       <div class="col3">Architecto beatae error sit volup tatem accusantium doloremque laudantium.</div>
     </div>
   </section>
-    
-  
 
       <footer class="footer">
-  FBPAGESTARTER, A FRAMEWORK FOR FACEBOOK PAGES, by <a href="http://tachunlin.com">Tachun LIN</a>
+  FBPAGESTARTER, A FRONT-END KIT FOR FACEBOOK PAGES, by <a href="http://tachunlin.com">Tachun LIN</a>
 </footer>
     </div>
 
