@@ -1,3 +1,20 @@
+/*
+* @fileOverview Fbpagestarter - jQuery Plugin
+* @version 0.1.0
+*
+* @author Tachun LIN http://www.github.com/tachun
+* @see https://github.com/tachun/fbpagestarter
+*
+* Copyright (c) 2013 Tachun Lin
+* Licensed under the MIT license.
+*
+*
+* Changelog
+* $Date: 2013-06-12 (Sat, 22 june 2013) $
+* $version: 0.1.0
+
+*/
+
 (function($) {
   "use strict";
   $.fn.fbStarter = function(options) {

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>FBPAGESTARTER</title>
+    <meta name="description" content="Fbpagestarter is front-end starter kit that makes it easy to create a page tab on Facebook">
+    <meta name="viewport" content="width=device-width">
+    
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link href="assets/css/810pxGrid.min.css" rel="stylesheet">
+    <link href="assets/css/demo.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="application" class="page-container">
+      <header class="header">
+        <a href="https://github.com/tachun/fbpagestarter" class="source ribben">GitHub Project</a>
+      </header>
+  
+      <article class="fb-elements main-content">
+        <p class="intro">
+          Trigger a facebook dialog is very simple, add a <strong>'fb-dialog'</strong> class on your element, than add a <strong>'data-fbactiontype'</strong> attribute with actions that you want to use.
+        </p>
+
+        <section class="content-section">
+          <h3 class="section-title">Add Page Tab</h3>
+          <p>The add page tab dialog allows a user to add an application to a Facebook Page which they administer.</p>
+
+          <p class="article-intro">Use data-fbactiontype = "<strong>add_page_tab</strong>"</p>
+
+          <button class="fb-dialog btn" data-fbactiontype="add_page_tab">Add Page Tab</button>
+        </section>
+        
+        <section class="content-section">
+          <h3 class="section-title">Authentication</h3>
+          <p>The authentication dialog allows a user to authorize an application as part of an authentication flow.</p>
+
+          <p class="article-intro">Use data-fbactiontype = "<strong>permissions</strong>", than add "<strong>data-permissions</strong>" attribute to control permissions</p>
+
+          <button class="fb-dialog btn" data-fbactiontype="permissions" data-permissions="email,user_birthday,publish_actions">Ask permissions</button>
+
+          <div id="user-info" class="user-info"></div>
+        </section>
+
+        <section class="content-section">
+          <h3 class="section-title">Post to wall</h3>
+          <p class="intro">The feed dialog allows a user to post a story to their Timeline</p>
+          
+          <p class="article-intro">Use data-fbactiontype = "<strong>share</strong>", than add "<strong>data-link</strong>", "<strong>data-picture</strong>", "<strong>data-title</strong>", "<strong>data-caption</strong>", "<strong>data-description</strong>" attributes to control your message contents</p>
+
+          <button class="fb-dialog btn" data-fbactiontype="share" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/share-icon.jpg" data-title="Post to timeline button" data-caption="Add some caption" data-description="description">Post to timeline</button>
+
+          <p class="note">
+            *All these data attributes are required, url of data-link must be an absolute url, and I recommend a 300px*300px image for data-picture.
+          </p>
+        </section>
+        
+        <section class="content-section">
+          <h3 class="section-title">Multi Friend Selector Requests</h3>
+          <p class="intro">The requests dialog allows a user to send a request to one or more of their friends</p>
+          
+          <p class="article-intro">Use data-fbactiontype = "<strong>requests</strong>", than add "<strong>data-message</strong>" attribute to control your message contents</p>
+
+          <button class="fb-dialog btn" data-fbactiontype="requests" data-message="My Great Request">Multi Friend Selector Requests</button>
+
+          <p class="note">
+            *The icon who display on requests dialog is the Facebook application icon.
+          </p>
+        </section>
+        
+        <section class="content-section">
+          <h3 class="section-title">Send</h3>
+          <p class="intro">The Send Dialog allows a user to send a Facebook Message to one or more of their friends.</p>
+
+          <button class="fb-dialog btn" data-fbactiontype="send" data-name="This is a send dialog" data-link="http://google.com" data-picture="http://demo.fbdoctor.com/fbpagestarter/page/assets/img/share-icon.jpg">Send</button>
+        </section>
+
+        <section class="content-section">
+          <h3 class="section-title">Scroll to</h3>
+          <p class="intro">To scroll to a specific location of your canvas page.</p> 
+
+          <p class="article-intro">Use <strong>'fb-scrollto'</strong> class to activate this function, then add <strong>'data-offset'</strong> to define a y position that you want to scroll to, and use <strong>'data-speed'</strong> value to control animation duration (default speed is 500).</p>
+
+          <button class="fb-scrollto btn" data-offset='20' data-speed='500'>Scroll to</button>
+        </section>
+
+        <section class="content-section last">
+          <h3 class="section-title">Resize Canvas Height</h3>
+          <p class="intro">Tells Facebook to resize your canvas page to a specific height.</p>
+
+          <p class="article-intro">Use <strong>'fb-setsize'</strong> class to activate this function, then add <strong>'data-height'</strong> to define a new canavas height.</p>
+
+          <button class="fb-setsize btn" data-height='300'>Setsize</button>          
+          <p class="note">
+            *This function isn't work in this demo, it must to set 'autoResize' option to false.
+          </p>
+        </section>
+      </article>
+
+      <footer class="footer">
+        FBPAGESTARTER, A FRONT-END KIT FOR FACEBOOK PAGES, by <a href="http://tachunlin.com">Tachun LIN</a>
+      </footer>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="assets/js/jquery.fbpagestarter.min.js"></script>
+    <script src="assets/js/demo.js"></script>
+  </body>
+</html>
