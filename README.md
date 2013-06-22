@@ -20,7 +20,7 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 
 ####  Include fbpagestarter plugin after you've included jQuery.
     
-    <script src="PATH/TO/fbpagestarter.min.js"></script>
+    <script src="PATH/TO/jquery.fbpagestarter.min.js"></script>
 
 ####  Basic Usage
 
