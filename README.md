@@ -1,4 +1,4 @@
-Fbpagestarter is front-end starter kit that makes it easy to create a page tab on Facebook.
+Fbpagestarter is front-end starter kit that makes it easy to create a page tab on Facebook, created and maintained by [Tachun Lin](https://twitter.com/creed88)
 
 ##  Demo & Documentation
 
