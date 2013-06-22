@@ -5,6 +5,7 @@ $(function(){
     pageId             : '109403935810224',
     locales            : 'fr_FR',
     canvasUrl          : '//demo.fbdoctor.com/fbpagestarter/',
+    autoResize         : false,
     dialogSuccess      : function(){
       console.log('dialog success');
     },
@@ -26,4 +27,10 @@ $(function(){
     }
   });
 
+  $(document).on('fb:initialized', function() {
+    $("#custome-scrollto").on("click", function(){
+      $.fn.fbStarter.externalScrollto(300,2000);
+    });
+    $.fn.fbStarter.externalAutoresize();
+  });
 });

@@ -91,10 +91,28 @@ Multi Friend Selector Requests&lt;/button&gt</code></pre>
       <button class="fb-scrollto btn" data-offset='20' data-speed='500'>Scroll to</button>
 
       <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-scrollto</strong>" <strong>data-offset="20"</strong> <strong>data-speed="500"</strong>&gtScroll to&lt;/button&gt</code></pre>
+
+      <p class="article-intro">You can also call scrollto function out of the plugin with <strong>'$.fn.fbStarter.externalScrollto("OFFSET","SPEED")'</strong>.</p>
+
+      <button id="custome-scrollto" class="btn">Custome Scroll to</button>
+
+      <pre class="prettyprint"><code class="language-html">&lt;button id="custome-scrollto"&gtScroll to&lt;/button&gt</code></pre>
+
+      <pre class="prettyprint"><code class="language-js">$(document).on('fb:initialized', function() {
+  $("#custome-scrollto").on("click", function(e){
+    e.preventDefault();
+    $.fn.fbStarter.externalScrollto(50,500);
+  })
+});</code></pre>
     </section>
 
-    <section class="content-section last">
-      <h3 class="section-title">Resize Canvas Height</h3>
+    <section class="content-section">
+      <h3 class="section-title">Set Canvas Height</h3>
+      
+      <p class="note">
+        *This function isn't work in this demo, it must set 'autoResize' option to false to deactive default autoresize function after page loaded.
+      </p>
+
       <p class="intro">Tells Facebook to resize your canvas page to a specific height.</p>
 
       <p class="article-intro">Use <strong>'fb-setsize'</strong> class to activate this function, then add <strong>'data-height'</strong> to define a new canavas height.</p>
@@ -103,9 +121,16 @@ Multi Friend Selector Requests&lt;/button&gt</code></pre>
 
       <pre class="prettyprint"><code class="language-html">&lt;button class="<strong>fb-setsize</strong>" <strong>data-height="300"</strong>&gtResize canvas height&lt;/button&gt</code></pre>
       
-      <p class="note">
-        *This function isn't work in this demo, it must to set 'autoResize' option to false.
-      </p>
+    </section>
+
+    <section class="content-section last">
+      <h3 class="section-title">Auto-Resize Canvas Height</h3>
+      
+      <p class="intro">By default, there is already an autoresize function who extrude after canvas page loaded. Somtimes when you add or remove some dom and you want to autooresiz canvas page again, you can use this function: '$.fn.fbStarter.externalAutoresize()'.</p>
+
+      <pre class="prettyprint"><code class="language-js">$(document).on('fb:initialized', function() {
+  $.fn.fbStarter.externalAutoresize();
+});</code></pre>
     </section>
 
     <!-- <section class="content-section">

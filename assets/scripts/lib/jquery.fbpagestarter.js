@@ -1,3 +1,19 @@
+/*
+* @fileOverview Fbpagestarter - jQuery Plugin
+* @version 0.1.0
+*
+* @author Tachun LIN http://www.github.com/tachun
+* @see https://github.com/tachun/fbpagestarter
+*
+* Copyright (c) 2013 Tachun Lin
+* Licensed under the MIT license.
+*
+*
+* Changelog
+* $Date: 2013-06-12 (Sat, 22 june 2013) $
+* $version: 0.1.0
+*/
+
 (function($) {
   "use strict";
   $.fn.fbStarter = function(options) {
@@ -141,10 +157,9 @@
 
       // Add tab to page
       function installToPage(){
-        var redirect_uri = settings.canvasUrl + 'install_to_page.html';
         FB.ui({
           method: 'pagetab',
-          redirect_uri: redirect_uri
+          redirect_uri: settings.canvasUrl + 'install_to_page.html'
         }, function(response) {
           if (response !== null && response.tabs_added !== null) {
             $.each(response.tabs_added, function(pageid) {
@@ -189,11 +204,7 @@
       }
 
       // Canvas scrollTo function
-      var speed = 500;
-      $('.fb-scrollto').on('click',function(e){
-        e.preventDefault(e);
-        var y = $(this).data('offset'),
-            speed = $(this).data('speed');
+      function scrollto(y, speed){
         FB.Canvas.getPageInfo(function(pageInfo){
           $({y: pageInfo.scrollTop}).animate(
             {y: y},
@@ -202,25 +213,51 @@
             }
           });
         });
+      }
+
+      $('.fb-scrollto').on('click',function(e){
+        e.preventDefault(e);
+        var offset = $(this).data('offset'),
+            speed = $(this).data('speed');
+        scrollto(offset, speed);
       });
 
+      $.fn.fbStarter.externalScrollto = function(exY, exSpeed) {
+        scrollto(exY, exSpeed);
+      }
+
       // Canvas setSize function
+      function setsize(newHeight){
+        FB.Canvas.setSize({ width: 810, height: newHeight });
+      }
+
       $('.fb-setsize').on('click',function(e){
         e.preventDefault(e);
         var newHeight = $(this).data('height'),
             newWidth  = $(this).data('width');
-        FB.Canvas.setSize({ width: 810, height: newHeight });
+        setsize(newHeight);
       });
 
+      $.fn.fbStarter.externalSetsize = function(exNewHeight) {
+        setsize(exNewHeight);
+      }
+
       // Canvas auto resize
-      $('.fb-autosize').on('click',function(e){
-        e.preventDefault(e);
+      function autoresize(){
         FB.Canvas.setDoneLoading( function() {
-          // a trick for 'shrink' page height
           FB.Canvas.setSize({height:600});
           setTimeout("FB.Canvas.setAutoGrow();",300);
         });
+      }
+
+      $('.fb-autoresize').on('click',function(e){
+        e.preventDefault(e);
+        autoresize();
       });
+
+      $.fn.fbStarter.externalAutoresize = function() {
+        autoresize();
+      }
 
     });
   };
