@@ -58,7 +58,9 @@
         FB.Canvas.setDoneLoading( function() {
           // a trick for 'shrink' page height
           FB.Canvas.setSize({height:600});
-          setTimeout("FB.Canvas.setAutoGrow();",300);
+          setTimeout(function () {
+            FB.Canvas.setAutoGrow();
+          }, 300);
         });
       }
 
@@ -224,7 +226,7 @@
 
       $.fn.fbStarter.externalScrollto = function(exY, exSpeed) {
         scrollto(exY, exSpeed);
-      }
+      };
 
       // Canvas setSize function
       function setsize(newHeight){
@@ -233,20 +235,22 @@
 
       $('.fb-setsize').on('click',function(e){
         e.preventDefault(e);
-        var newHeight = $(this).data('height'),
-            newWidth  = $(this).data('width');
+        var newHeight = $(this).data('height');
+            // newWidth  = $(this).data('width');
         setsize(newHeight);
       });
 
       $.fn.fbStarter.externalSetsize = function(exNewHeight) {
         setsize(exNewHeight);
-      }
+      };
 
       // Canvas auto resize
       function autoresize(){
         FB.Canvas.setDoneLoading( function() {
           FB.Canvas.setSize({height:600});
-          setTimeout("FB.Canvas.setAutoGrow();",300);
+          setTimeout(function () {
+            FB.Canvas.setAutoGrow();
+          }, 300);
         });
       }
 
@@ -257,10 +261,9 @@
 
       $.fn.fbStarter.externalAutoresize = function() {
         autoresize();
-      }
+      };
 
     });
   };
 
 })( jQuery );
-
