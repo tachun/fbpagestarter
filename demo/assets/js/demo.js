@@ -1,8 +1,8 @@
 // Facebook js functions
 $(function(){
   $(document).fbStarter({
-    appId              : '263301367106483',
-    pageId             : '109403935810224',
+    appId              : 'APP ID',
+    pageId             : 'PAGE ID',
     locales            : 'fr_FR',
     canvasUrl          : '//demo.fbdoctor.com/fbpagestarter/',
     dialogSuccess      : function(){
