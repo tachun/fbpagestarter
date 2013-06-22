@@ -12,14 +12,73 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 - Canvas Methods (setSize, setAutoGrow, scrollTo)
 - 810px Grid system
 
-##  How it works?
+##  GETTING STARTED
 
-###  Add a class "page-container" to your application main wrapper
+###  Include fbpagestarter plugin
+
+####  Include fbpagestarter plugin after you've included jQuery.
+    
+    <script src="PATH/TO/fbpagestarter.min.js"></script>
+
+####  Basic Usage
+
+    $(function(){
+      $(document).fbStarter({
+        appId     : 'YOUR APP ID',
+        pageId    : 'YOUR PAGE ID',
+        canvasUrl : '//YOUR_CANVAS_URL'
+      });
+    });
+
+####  Advance Usage
+
+    $(function(){
+      $(document).fbStarter({
+        appId              : 'YOUR APP ID',
+        pageId             : 'YOUR PAGE ID',
+        locales            : 'fr_FR',  //Your locale, default is en_US
+        canvasUrl          : '//YOUR_CANVAS_URL',  //ex: '//blabla.com/'
+        dialogSuccess      : function(){
+          //Custome callback function for dialog submit success
+          console.log('dialog success');
+        },
+        dialogFail         : function(){  
+          //Custome callback function when user close dialog without submit
+          console.log('dialog canceled');
+        },
+        permissionsSuccess : function(){
+          //Custome callback function for authentication success
+          FB.api('/me', function(response) {
+            //Fetch user data
+            var userName =  response.name,
+                userID =  response.id,
+                userBirthday =  response.birthday,
+                userLocale =  response.locale,
+                userEmail =  response.email,
+                userLink =  response.link,
+                userPicture = 
+                '<img src="//graph.facebook.com/'+response.username+'/picture">',
+                userData = userName + userID + userBirthday + userLocale + userEmail
+                           + userLink + userPicture;
+            console.log(userData);
+          });
+        }
+      });
+    });
+
+
+###  Grid system
+
+####  Include 810pxGrid.css into your project
+
+    <link rel="stylesheet" type="text/css" href="PATH/TO/810pxGrid.css">
+
+####  Add a class "page-container" to your application main wrapper
 
     <div id="application" class="page-container"></div>
 
 
-###  Play with class "row" and "col1" ~ "col12"
+####  Play with class "row" and "col1" ~ "col12"
 
     // Basic 2 column layout
 
@@ -62,9 +121,7 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 
 Chrome, Firefox 3.5+, Safari 4+, IE7+, Opera 9+
 
-
-
-## 810 Timeline Grid is licensed under MIT license:
+##  MIT License:
 
 MIT license:
 http://www.opensource.org/licenses/mit-license.php
