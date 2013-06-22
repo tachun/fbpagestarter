@@ -14,6 +14,8 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 
 ##  GETTING STARTED
 
+[Download the latest release](https://github.com/tachun/fbpagestarter/archive/master.zip)
+
 ###  Include fbpagestarter plugin
 
 ####  Include fbpagestarter plugin after you've included jQuery.
