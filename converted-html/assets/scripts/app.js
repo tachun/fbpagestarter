@@ -2,8 +2,8 @@
 $(function(){
   $(document).fbStarter({
     appId              : '263301367106483',
-    pageId             : '109403935810224',
-    locales            : 'fr_FR',
+    pageId             : '329384987193982',
+    locales            : 'en_US',
     canvasUrl          : '//demo.fbdoctor.com/fbpagestarter/',
     autoResize         : false,
     dialogSuccess      : function(){
