@@ -1,0 +1,24 @@
+{
+  "name": "fbpagestarter",
+  "version": "0.1.0",
+  "description": "A front-end starter kit that makes it easy to create a page tab on Facebook",
+  "main": "jquery.fbpagestarter.js",
+  "keywords": [
+    "fbpagestarter",
+    "facebook_pages"
+  ],
+  "homepage": "https://github.com/tachun/fbpagestarter",
+  "bugs": "https://github.com/tachun/fbpagestarter/issues",
+  "author": {
+    "name": "Tachun Lin",
+    "email": "creed88@gmail.com",
+    "url": "http://tachunlin.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tachun/fbpagestarter.git"
+  },
+  "licenses": [{
+    "type": "MIT"
+  }]
+}
