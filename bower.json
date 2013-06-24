@@ -4,8 +4,7 @@
   "description": "A front-end starter kit that makes it easy to create a page tab on Facebook",
   "main": "jquery.fbpagestarter.js",
   "keywords": [
-    "fbpagestarter",
-    "facebook_pages"
+    "fbpagestarter"
   ],
   "homepage": "https://github.com/tachun/fbpagestarter",
   "bugs": "https://github.com/tachun/fbpagestarter/issues",
@@ -20,8 +19,5 @@
   },
   "dependencies": {
     "jquery": ">=1.5"
-  },
-  "licenses": [{
-    "type": "MIT"
-  }]
+  }
 }
