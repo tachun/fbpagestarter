@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git@github.com:tachun/fbpagestarter.git"
   },
+  "dependencies": {
+    "jquery": ">=1.5"
+  },
   "licenses": [{
     "type": "MIT"
   }]
