@@ -1,6 +1,6 @@
 {
   "name": "fbpagestarter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A front-end starter kit that makes it easy to create a page tab on Facebook",
   "main": "jquery.fbpagestarter.js",
   "keywords": [

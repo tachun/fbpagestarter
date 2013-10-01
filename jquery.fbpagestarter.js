@@ -1,6 +1,6 @@
 /*
 * @fileOverview Fbpagestarter - jQuery Plugin
-* @version 0.1.0
+* @version 0.1.1
 *
 * @author Tachun LIN http://www.github.com/tachun
 * @see https://github.com/tachun/fbpagestarter
@@ -10,8 +10,8 @@
 *
 *
 * Changelog
-* $Date: 2013-06-12 (Sat, 22 june 2013) $
-* $version: 0.1.0
+* $Date: 2013-10-1 (Tue, 01 Oct 2013) $
+* $version: 0.1.1
 */
 
 (function($) {
