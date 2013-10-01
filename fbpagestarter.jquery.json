@@ -1,0 +1,35 @@
+{
+    "name": "fbpagestarter",
+    "title": "jQuery fbpagestarter",
+    "description": "A front-end starter kit that makes it easy to create a page tab on Facebook",
+    "keywords": [
+        "facebook",
+        "facebookpages",
+        "social"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Tachun LIN",
+        "url": "https://github.com/tachun"
+    },
+    "maintainers": [
+        {
+            "name": "Tachun LIN",
+            "email": "creed88@gmail.com",
+            "url": "https://github.com/tachun"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/tachun/fbpagestarter/issues",
+    "homepage": "https://github.com/tachun/fbpagestarter",
+    "docs": "https://github.com/tachun/fbpagestarter",
+    "download": "https://github.com/tachun/fbpagestarter/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
