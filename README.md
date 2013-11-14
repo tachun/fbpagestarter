@@ -121,7 +121,7 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 
 ##  PSD Template
 
-Yes! There is a .psd template with facebook layout for design, you can find it form my [810pxGrid Project](https://github.com/tachun/810pxGrid/archive/master.zip)
+Yes! There is a .psd template with facebook layout for design, you can find it in my [810pxGrid Project](https://github.com/tachun/810pxGrid/archive/master.zip)
 
 
 ##  Browser Compatibility
