@@ -11,6 +11,7 @@ Fbpagestarter is front-end starter kit that makes it easy to create a page tab o
 - Dialogs (add page tab, Feed, OAuth, Requests, Send)
 - Canvas Methods (setSize, setAutoGrow, scrollTo)
 - 810px Grid system
+- [PSD Template](https://github.com/tachun/810pxGrid/archive/master.zip)
 
 ##  GETTING STARTED
 
